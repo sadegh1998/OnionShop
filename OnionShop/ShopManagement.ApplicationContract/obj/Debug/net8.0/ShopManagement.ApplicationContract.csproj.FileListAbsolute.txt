@@ -1,0 +1,16 @@
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\bin\Debug\net8.0\ShopManagement.ApplicationContract.deps.json
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\bin\Debug\net8.0\ShopManagement.ApplicationContract.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\bin\Debug\net8.0\ShopManagement.ApplicationContract.pdb
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\bin\Debug\net8.0\0_Framework.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\bin\Debug\net8.0\0_Framework.pdb
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.csproj.AssemblyReference.cache
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.GeneratedMSBuildEditorConfig.editorconfig
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.AssemblyInfoInputs.cache
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.AssemblyInfo.cs
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.csproj.CoreCompileInputs.cache
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.sourcelink.json
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.csproj.CopyComplete
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\refint\ShopManagement.ApplicationContract.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ShopManagement.ApplicationContract.pdb
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.ApplicationContract\obj\Debug\net8.0\ref\ShopManagement.ApplicationContract.dll
