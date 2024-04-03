@@ -311,6 +311,9 @@
             "projectReferences": {
               "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\0-Framework\\0_Framework.csproj": {
                 "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\0-Framework\\0_Framework.csproj"
+              },
+              "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.ApplicationContract\\ShopManagement.ApplicationContract.csproj": {
+                "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.ApplicationContract\\ShopManagement.ApplicationContract.csproj"
               }
             }
           }
@@ -373,6 +376,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.ApplicationContract\\ShopManagement.ApplicationContract.csproj": {
+                "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.ApplicationContract\\ShopManagement.ApplicationContract.csproj"
+              },
               "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.Domain\\ShopManagement.Domain.csproj": {
                 "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.Domain\\ShopManagement.Domain.csproj"
               }

@@ -23,7 +23,7 @@ namespace ShopManagement.Application
         {
             var operation = new OperationResult();
             if (_categoryRepository.Exisit(x => x.Name == command.Name))
-                return operation.Failed("رکوردی دیگری با همین عنوان یافت شد . نام دیگری وارد کنید");
+                return operation.Failed(ApplicationMessages.Duplicate);
 
             var slug = command.Slug.Slugify();
             var productCategory = new ProductCategory(command.Name, command.Description, command.Picture, command.PictureAlt, command.PictureTitle, command.Keywords, command.MetaDescription, slug);
@@ -38,11 +38,11 @@ namespace ShopManagement.Application
         {
             var operation = new OperationResult();
             if (_categoryRepository.Exisit(x => x.Name == command.Name && x.Id != command.Id))
-                return operation.Failed("رکوردی دیگری با همین عنوان یافت شد . نام دیگری وارد کنید");
+                return operation.Failed(ApplicationMessages.Duplicate);
 
             var productCategory = _categoryRepository.Get(command.Id);
             if (productCategory == null)
-                return operation.Failed("رکوردی با مشخصات وارد شده پیدا نشد . مججددا تلاش نمایید");
+                return operation.Failed(ApplicationMessages.NotFound);
 
             var slug = command.Slug.Slugify();
             productCategory.Edit(command.Name, command.Description, command.Picture, command.PictureAlt, command.PictureTitle, command.Keywords, command.MetaDescription, slug);
@@ -68,6 +68,11 @@ namespace ShopManagement.Application
                 PictureTitle = productCategory.PictureTitle,
                 Slug = productCategory.Slug
             };
+        }
+
+        public List<ProductCategoryViewModel> GetProductCategories()
+        {
+            return _categoryRepository.GetProductCategories();
         }
 
         public List<ProductCategoryViewModel> Search(ProductCategorySearchModel searchModel)

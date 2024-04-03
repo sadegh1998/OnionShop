@@ -2,7 +2,9 @@ F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\bin\Deb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\bin\Debug\net8.0\ShopManagement.Domain.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\bin\Debug\net8.0\ShopManagement.Domain.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\bin\Debug\net8.0\0_Framework.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\bin\Debug\net8.0\ShopManagement.ApplicationContract.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\bin\Debug\net8.0\0_Framework.pdb
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\bin\Debug\net8.0\ShopManagement.ApplicationContract.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\obj\Debug\net8.0\ShopManagement.Domain.csproj.AssemblyReference.cache
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\obj\Debug\net8.0\ShopManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Domain\obj\Debug\net8.0\ShopManagement.Domain.AssemblyInfoInputs.cache

@@ -232,6 +232,9 @@
             "projectReferences": {
               "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\0-Framework\\0_Framework.csproj": {
                 "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\0-Framework\\0_Framework.csproj"
+              },
+              "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.ApplicationContract\\ShopManagement.ApplicationContract.csproj": {
+                "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.ApplicationContract\\ShopManagement.ApplicationContract.csproj"
               }
             }
           }

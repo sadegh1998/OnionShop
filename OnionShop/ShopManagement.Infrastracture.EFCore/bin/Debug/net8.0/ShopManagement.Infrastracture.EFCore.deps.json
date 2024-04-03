@@ -12,6 +12,7 @@
           "Microsoft.EntityFrameworkCore.Design": "8.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.1",
+          "ShopManagement.ApplicationContract": "1.0.0",
           "ShopManagement.Domain": "1.0.0"
         },
         "runtime": {
@@ -922,9 +923,18 @@
           "0_Framework.dll": {}
         }
       },
-      "ShopManagement.Domain/1.0.0": {
+      "ShopManagement.ApplicationContract/1.0.0": {
         "dependencies": {
           "0_Framework": "1.0.0"
+        },
+        "runtime": {
+          "ShopManagement.ApplicationContract.dll": {}
+        }
+      },
+      "ShopManagement.Domain/1.0.0": {
+        "dependencies": {
+          "0_Framework": "1.0.0",
+          "ShopManagement.ApplicationContract": "1.0.0"
         },
         "runtime": {
           "ShopManagement.Domain.dll": {}
@@ -1464,6 +1474,11 @@
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
     },
     "0_Framework/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ShopManagement.ApplicationContract/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

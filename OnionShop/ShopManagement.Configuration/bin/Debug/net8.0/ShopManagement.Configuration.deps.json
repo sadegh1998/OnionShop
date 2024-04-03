@@ -582,7 +582,8 @@
       },
       "ShopManagement.Domain/1.0.0": {
         "dependencies": {
-          "0_Framework": "1.0.0"
+          "0_Framework": "1.0.0",
+          "ShopManagement.ApplicationContract": "1.0.0"
         },
         "runtime": {
           "ShopManagement.Domain.dll": {}
@@ -592,6 +593,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.1",
+          "ShopManagement.ApplicationContract": "1.0.0",
           "ShopManagement.Domain": "1.0.0"
         },
         "runtime": {

@@ -3,7 +3,9 @@ F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\bin\Debug\net8.0\ShopManagement.Infrastracture.EFCore.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\bin\Debug\net8.0\ShopManagement.Infrastracture.EFCore.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\bin\Debug\net8.0\0_Framework.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\bin\Debug\net8.0\ShopManagement.ApplicationContract.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\bin\Debug\net8.0\ShopManagement.Domain.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\bin\Debug\net8.0\ShopManagement.ApplicationContract.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\bin\Debug\net8.0\ShopManagement.Domain.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\bin\Debug\net8.0\0_Framework.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Infrastracture.EFCore\obj\Debug\net8.0\ShopManagement.Infrastracture.EFCore.csproj.AssemblyReference.cache
