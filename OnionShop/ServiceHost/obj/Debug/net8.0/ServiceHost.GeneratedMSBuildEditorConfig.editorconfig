@@ -30,6 +30,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Shared/_Menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xTaGFyZWRcX01lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xTaGFyZWRcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
