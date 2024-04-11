@@ -46,6 +46,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xTaG9wXFByb2R1Y3RDYXRlZ29yaWVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Shop/ProductPictures/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xTaG9wXFByb2R1Y3RQaWN0dXJlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Shop/ProductPictures/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xTaG9wXFByb2R1Y3RQaWN0dXJlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Shop/ProductPictures/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xTaG9wXFByb2R1Y3RQaWN0dXJlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Shop/Products/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xTaG9wXFByb2R1Y3RzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
