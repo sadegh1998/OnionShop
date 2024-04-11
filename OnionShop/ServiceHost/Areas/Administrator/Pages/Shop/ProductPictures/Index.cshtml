@@ -5,14 +5,14 @@
 
 @{
     Layout = "Shared/_AdminLayout";
-    ViewData["title"] = "مدیریت محصولات";
+    ViewData["title"] = "مدیریت عکس محصولات";
 }
 
 <div class="row">
     <div class="col-sm-12">
         <h4 class="page-title pull-right">@ViewData["title"]</h4>
         <p class="pull-left">
-            <a class="btn btn-success btn-lg" href="#showmodal=@Url.Page("./Index", "Create")">ایجاد محصول جدید</a>
+            <a class="btn btn-success btn-lg" href="#showmodal=@Url.Page("./Index", "Create")">ایجاد عکس محصول جدید</a>
         </p>
     </div>
 </div>
@@ -21,7 +21,7 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">جستجو در محصولات</h3>
+                <h3 class="panel-title">جستجو در عکس محصولات</h3>
             </div>
             <div class="panel-body">
                 <form class="form-inline" role="form" method="get">
@@ -30,7 +30,7 @@
                         <label class="sr-only" asp-for="SearchModel.ProductId"></label>
                         <select class="form-control" asp-for="SearchModel.ProductId" asp-items="Model.Products">
 
-                            <option value="0">گروه محصولی...</option>
+                            <option value="0">محصولات...</option>
 
                         </select>
                     </div>
@@ -46,7 +46,7 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">لیست گروه محصولات</h3>
+                <h3 class="panel-title">لیست تصویر محصولات</h3>
             </div>
             <div class="panel-body">
                 <div class="row">

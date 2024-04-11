@@ -2,6 +2,7 @@
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
 using ShopManagement.Domain.ProiductPictureAgg;
+using ShopManagement.Domain.SlideAgg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace ShopManagement.Infrastracture.EFCore
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Product> Products{ get; set; }
         public DbSet<ProductPicture> ProductPictures { get; set; }
+        public DbSet<Slide> Slides { get; set; }
         public ShopContext(DbContextOptions<ShopContext> option) : base(option)
         {
 
