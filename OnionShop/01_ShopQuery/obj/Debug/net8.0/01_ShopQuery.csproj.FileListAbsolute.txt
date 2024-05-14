@@ -1,0 +1,12 @@
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\bin\Debug\net8.0\01_ShopQuery.deps.json
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\bin\Debug\net8.0\01_ShopQuery.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\bin\Debug\net8.0\01_ShopQuery.pdb
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\01_ShopQuery.GeneratedMSBuildEditorConfig.editorconfig
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\01_ShopQuery.AssemblyInfoInputs.cache
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\01_ShopQuery.AssemblyInfo.cs
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\01_ShopQuery.csproj.CoreCompileInputs.cache
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\01_ShopQuery.sourcelink.json
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\01_ShopQuery.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\refint\01_ShopQuery.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\01_ShopQuery.pdb
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\01_ShopQuery\obj\Debug\net8.0\ref\01_ShopQuery.dll
