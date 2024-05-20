@@ -962,6 +962,19 @@
           }
         }
       },
+      "01_ShopQuery/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ShopManagement.Infrastracture.EFCore": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/01_ShopQuery.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/01_ShopQuery.dll": {}
+        }
+      },
       "0_Framework/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -2723,6 +2736,11 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "01_ShopQuery/1.0.0": {
+      "type": "project",
+      "path": "../01_ShopQuery/01_ShopQuery.csproj",
+      "msbuildProject": "../01_ShopQuery/01_ShopQuery.csproj"
+    },
     "0_Framework/1.0.0": {
       "type": "project",
       "path": "../0-Framework/0_Framework.csproj",
@@ -2751,6 +2769,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "01_ShopQuery >= 1.0.0",
       "Microsoft.Extensions.DependencyInjection.Abstractions >= 8.0.0",
       "ShopManagement.Application >= 1.0.0",
       "ShopManagement.ApplicationContract >= 1.0.0",
@@ -2792,6 +2811,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\01_ShopQuery\\01_ShopQuery.csproj": {
+              "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\01_ShopQuery\\01_ShopQuery.csproj"
+            },
             "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.ApplicationContract\\ShopManagement.ApplicationContract.csproj": {
               "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.ApplicationContract\\ShopManagement.ApplicationContract.csproj"
             },

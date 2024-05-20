@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Query\" />
+    <ProjectReference Include="..\ShopManagement.Infrastracture.EFCore\ShopManagement.Infrastracture.EFCore.csproj" />
   </ItemGroup>
 
 </Project>

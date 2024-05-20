@@ -266,3 +266,5 @@ F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\obj\Debug\net8.0\
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\obj\Debug\net8.0\ServiceHost.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\obj\Debug\net8.0\ServiceHost.genruntimeconfig.cache
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\obj\Debug\net8.0\ref\ServiceHost.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\01_ShopQuery.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\01_ShopQuery.pdb

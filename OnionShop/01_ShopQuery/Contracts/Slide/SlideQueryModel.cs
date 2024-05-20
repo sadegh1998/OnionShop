@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _01_ShopQuery.Contract.Slide
+namespace _01_ShopQuery.Contracts.Slide
 {
     public class SlideQueryModel
     {
@@ -15,5 +15,6 @@ namespace _01_ShopQuery.Contract.Slide
         public string Title { get; set; }
         public string Text { get; set; }
         public string BtnText { get; set; }
+        public string Link { get; set; }
     }
 }

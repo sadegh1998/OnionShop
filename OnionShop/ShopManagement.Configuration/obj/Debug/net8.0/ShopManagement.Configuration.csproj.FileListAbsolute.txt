@@ -22,3 +22,5 @@ F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Configuration\
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Configuration\obj\Debug\net8.0\refint\ShopManagement.Configuration.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Configuration\obj\Debug\net8.0\ShopManagement.Configuration.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Configuration\obj\Debug\net8.0\ref\ShopManagement.Configuration.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Configuration\bin\Debug\net8.0\01_ShopQuery.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ShopManagement.Configuration\bin\Debug\net8.0\01_ShopQuery.pdb

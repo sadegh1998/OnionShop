@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\01_ShopQuery\01_ShopQuery.csproj" />
     <ProjectReference Include="..\ShopManagement.ApplicationContract\ShopManagement.ApplicationContract.csproj" />
     <ProjectReference Include="..\ShopManagement.Application\ShopManagement.Application.csproj" />
     <ProjectReference Include="..\ShopManagement.Domain\ShopManagement.Domain.csproj" />
