@@ -1265,6 +1265,26 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\css\\vendors.css"
     },
     {
+      "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\fonts\\IranianSans.eot",
+      "PackagePath": "staticwebassets\\Theme\\assets\\fonts\\IranianSans.eot"
+    },
+    {
+      "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\fonts\\IranianSans.svg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\fonts\\IranianSans.svg"
+    },
+    {
+      "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\fonts\\IranianSans.ttf",
+      "PackagePath": "staticwebassets\\Theme\\assets\\fonts\\IranianSans.ttf"
+    },
+    {
+      "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\fonts\\IranianSans.woff",
+      "PackagePath": "staticwebassets\\Theme\\assets\\fonts\\IranianSans.woff"
+    },
+    {
+      "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\fonts\\IranianSans.woff2",
+      "PackagePath": "staticwebassets\\Theme\\assets\\fonts\\IranianSans.woff2"
+    },
+    {
       "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\fonts\\fontawesome-webfont3e6e.eot",
       "PackagePath": "staticwebassets\\Theme\\assets\\fonts\\fontawesome-webfont3e6e.eot"
     },
@@ -1417,12 +1437,24 @@
       "PackagePath": "staticwebassets\\Theme\\assets\\img\\hero-slider\\slider1-eposi1-1820x785.jpg"
     },
     {
+      "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\img\\hero-slider\\slider1.jpg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\img\\hero-slider\\slider1.jpg"
+    },
+    {
       "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\img\\hero-slider\\slider2-eposi1-1820x785.jpg",
       "PackagePath": "staticwebassets\\Theme\\assets\\img\\hero-slider\\slider2-eposi1-1820x785.jpg"
     },
     {
+      "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\img\\hero-slider\\slider2.jpg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\img\\hero-slider\\slider2.jpg"
+    },
+    {
       "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\img\\hero-slider\\slider3-eposi1-1820x785.jpg",
       "PackagePath": "staticwebassets\\Theme\\assets\\img\\hero-slider\\slider3-eposi1-1820x785.jpg"
+    },
+    {
+      "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\img\\hero-slider\\slider3.jpg",
+      "PackagePath": "staticwebassets\\Theme\\assets\\img\\hero-slider\\slider3.jpg"
     },
     {
       "Id": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ServiceHost\\wwwroot\\Theme\\assets\\img\\icons\\de-de.png",

@@ -74,11 +74,11 @@
 
                                             @if (!item.IsRemove)
                                             {
-                                                <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id" class="btn btn-success">اتمام موجودی</a>
+                                                <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id" class="btn btn-danger">حذف</a>
                                             }
                                             else
                                             {
-                                                <a asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id" class="btn btn-danger"> شارژ موجودی</a>
+                                                <a asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id" class="btn btn-success">فعال</a>
                                             }
                                         </td>
                                     </tr>
