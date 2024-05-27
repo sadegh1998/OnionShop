@@ -1,3 +1,4 @@
+using DiscountManagement.configuration;
 using ShopManagement.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 var ConnectionString = builder.Configuration.GetConnectionString("OnionShopDb");
 builder.Services.AddRazorPages();
 ShopManagementBootstrapper.Configuration(builder.Services, ConnectionString);
-
+DiscountCustomerBootstrapper.Configure(builder.Services, ConnectionString);
 
 var app = builder.Build();
 

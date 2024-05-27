@@ -1583,7 +1583,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -2888,6 +2888,77 @@
         },
         "runtime": {
           "bin/placeholder/0_Framework.dll": {}
+        }
+      },
+      "CustomerDiscount.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DiscountManagement.Application.Contract": "1.0.0",
+          "DiscountManagement.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CustomerDiscount.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CustomerDiscount.Application.dll": {}
+        }
+      },
+      "DiscountManagement.Application.Contract/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "0_Framework": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DiscountManagement.Application.Contract.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DiscountManagement.Application.Contract.dll": {}
+        }
+      },
+      "DiscountManagement.configuration/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "CustomerDiscount.Application": "1.0.0",
+          "DiscountManagement.Domain": "1.0.0",
+          "DiscountManagement.Infrastructure.EFCore": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1"
+        },
+        "compile": {
+          "bin/placeholder/DiscountManagement.configuration.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DiscountManagement.configuration.dll": {}
+        }
+      },
+      "DiscountManagement.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "0_Framework": "1.0.0",
+          "DiscountManagement.Application.Contract": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DiscountManagement.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DiscountManagement.Domain.dll": {}
+        }
+      },
+      "DiscountManagement.Infrastructure.EFCore/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "DiscountManagement.Domain": "1.0.0",
+          "ShopManagement.Infrastracture.EFCore": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DiscountManagement.Infrastructure.EFCore.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DiscountManagement.Infrastructure.EFCore.dll": {}
         }
       },
       "ShopManagement.Application/1.0.0": {
@@ -5429,10 +5500,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
-      "sha512": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
+      "sha512": "fGLiCRLMYd00JYpClraLjJTNKLmMJPnqxMaiRzEBIIvevlzxz33mXy39Lkd48hu1G+N21S7QpaO5ZzKsI6FRuA==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5456,7 +5527,7 @@
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -8057,6 +8128,31 @@
       "path": "../0-Framework/0_Framework.csproj",
       "msbuildProject": "../0-Framework/0_Framework.csproj"
     },
+    "CustomerDiscount.Application/1.0.0": {
+      "type": "project",
+      "path": "../CustomerDiscount.Application/CustomerDiscount.Application.csproj",
+      "msbuildProject": "../CustomerDiscount.Application/CustomerDiscount.Application.csproj"
+    },
+    "DiscountManagement.Application.Contract/1.0.0": {
+      "type": "project",
+      "path": "../DiscountManagement.Application.Contract/DiscountManagement.Application.Contract.csproj",
+      "msbuildProject": "../DiscountManagement.Application.Contract/DiscountManagement.Application.Contract.csproj"
+    },
+    "DiscountManagement.configuration/1.0.0": {
+      "type": "project",
+      "path": "../DiscountManagement.configuration/DiscountManagement.configuration.csproj",
+      "msbuildProject": "../DiscountManagement.configuration/DiscountManagement.configuration.csproj"
+    },
+    "DiscountManagement.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DiscountManagement.Domain/DiscountManagement.Domain.csproj",
+      "msbuildProject": "../DiscountManagement.Domain/DiscountManagement.Domain.csproj"
+    },
+    "DiscountManagement.Infrastructure.EFCore/1.0.0": {
+      "type": "project",
+      "path": "../DiscountManagement.Infrastructure.EFCore/DiscountManagement.Infrastructure.EFCore.csproj",
+      "msbuildProject": "../DiscountManagement.Infrastructure.EFCore/DiscountManagement.Infrastructure.EFCore.csproj"
+    },
     "ShopManagement.Application/1.0.0": {
       "type": "project",
       "path": "../ShopManagement.Application/ShopManagement.Application.csproj",
@@ -8086,6 +8182,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "01_ShopQuery >= 1.0.0",
+      "DiscountManagement.configuration >= 1.0.0",
       "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter >= 8.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 8.0.1",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.0",
@@ -8128,6 +8225,9 @@
           "projectReferences": {
             "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\01_ShopQuery\\01_ShopQuery.csproj": {
               "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\01_ShopQuery\\01_ShopQuery.csproj"
+            },
+            "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\DiscountManagement.configuration\\DiscountManagement.configuration.csproj": {
+              "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\DiscountManagement.configuration\\DiscountManagement.configuration.csproj"
             },
             "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.Configuration\\ShopManagement.Configuration.csproj": {
               "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\ShopManagement.Configuration\\ShopManagement.Configuration.csproj"
