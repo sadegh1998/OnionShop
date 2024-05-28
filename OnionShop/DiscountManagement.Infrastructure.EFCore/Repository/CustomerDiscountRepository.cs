@@ -31,6 +31,7 @@ namespace DiscountManagement.Infrastructure.EFCore.Repository
                 EndDate = x.EndDate.ToString(),
                 Reason = x.Reason,
                 ProductId = x.ProductId,
+
             }).FirstOrDefault(x => x.Id == id);
         }
 
@@ -43,21 +44,22 @@ namespace DiscountManagement.Infrastructure.EFCore.Repository
                 ProductId = x.ProductId,
                 DiscoutRate = x.DiscoutRate,
                 Reason = x.Reason,
-                StartDate = x.StartDate.ToString(),
-                EndDate = x.EndDate.ToString(),
+                StartDate = x.StartDate.ToFarsi(),
+                EndDate = x.EndDate.ToFarsi(),
                 StartDateGr = x.StartDate,
                 EndDateGr = x.EndDate,
+                CreationDate =  x.CreationDate.ToFarsi()
             });
 
             if (search.ProductId > 0)
             {
                 query = query.Where(x => x.ProductId == search.ProductId);
             }
-            if (string.IsNullOrWhiteSpace(search.StartDate))
+            if (!string.IsNullOrWhiteSpace(search.StartDate))
             {
                 query = query.Where(x => x.StartDateGr > search.StartDate.ToGeorgianDateTime());
             }
-            if (string.IsNullOrWhiteSpace(search.EndDate))
+            if (!string.IsNullOrWhiteSpace(search.EndDate))
             {
                 query = query.Where(x => x.EndDateGr > search.EndDate.ToGeorgianDateTime());
             }

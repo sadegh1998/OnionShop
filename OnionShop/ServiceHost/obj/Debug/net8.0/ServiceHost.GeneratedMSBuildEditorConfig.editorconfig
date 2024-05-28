@@ -26,6 +26,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Discount/CustomerDiscounts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xEaXNjb3VudFxDdXN0b21lckRpc2NvdW50c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Discount/CustomerDiscounts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xEaXNjb3VudFxDdXN0b21lckRpc2NvdW50c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Discount/CustomerDiscounts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xEaXNjb3VudFxDdXN0b21lckRpc2NvdW50c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/.Net Core Project/OnionShop/OnionShop/OnionShop/ServiceHost/Areas/Administrator/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5pc3RyYXRvclxQYWdlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
