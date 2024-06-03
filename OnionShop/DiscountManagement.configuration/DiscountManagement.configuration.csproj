@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CustomerDiscount.Application\CustomerDiscount.Application.csproj" />
+    <ProjectReference Include="..\CustomerDiscount.Application\DiscountManagement.Application.csproj" />
     <ProjectReference Include="..\DiscountManagement.Domain\DiscountManagement.Domain.csproj" />
     <ProjectReference Include="..\DiscountManagement.Infrastructure.EFCore\DiscountManagement.Infrastructure.EFCore.csproj" />
   </ItemGroup>

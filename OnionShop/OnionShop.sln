@@ -33,17 +33,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM.Application", "DM.Applic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM.Domain", "DM.Domain", "{C97D9D7F-F1E5-43DD-B791-49999398FE83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountManagement.Domain", "DiscountManagement.Domain\DiscountManagement.Domain.csproj", "{318A2494-B544-4290-9ED7-466C5E57DB6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountManagement.Domain", "DiscountManagement.Domain\DiscountManagement.Domain.csproj", "{318A2494-B544-4290-9ED7-466C5E57DB6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountManagement.Application.Contract", "DiscountManagement.Application.Contract\DiscountManagement.Application.Contract.csproj", "{733FBC91-E318-466B-95F0-5C5402550A74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountManagement.Application.Contract", "DiscountManagement.Application.Contract\DiscountManagement.Application.Contract.csproj", "{733FBC91-E318-466B-95F0-5C5402550A74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM.Infrastracture", "DM.Infrastracture", "{CE5E379C-9A8E-4C4A-B219-F605E4C0542E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountManagement.Infrastructure.EFCore", "DiscountManagement.Infrastructure.EFCore\DiscountManagement.Infrastructure.EFCore.csproj", "{854FF212-4672-4BFB-85D0-0229F03D3F27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountManagement.Infrastructure.EFCore", "DiscountManagement.Infrastructure.EFCore\DiscountManagement.Infrastructure.EFCore.csproj", "{854FF212-4672-4BFB-85D0-0229F03D3F27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountManagement.configuration", "DiscountManagement.configuration\DiscountManagement.configuration.csproj", "{98616189-4984-4FE0-B4CB-E3B08CE9A098}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountManagement.configuration", "DiscountManagement.configuration\DiscountManagement.configuration.csproj", "{98616189-4984-4FE0-B4CB-E3B08CE9A098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerDiscount.Application", "CustomerDiscount.Application\CustomerDiscount.Application.csproj", "{F6816507-04D2-4F77-BCB5-7B2FC26CF520}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscountManagement.Application", "CustomerDiscount.Application\DiscountManagement.Application.csproj", "{F6816507-04D2-4F77-BCB5-7B2FC26CF520}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

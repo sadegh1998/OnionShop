@@ -269,13 +269,13 @@ F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\obj\Debug\net8.0\
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\01_ShopQuery.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\01_ShopQuery.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\CustomerDiscount.Application.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.Application.Contract.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.configuration.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.Domain.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.Infrastructure.EFCore.dll
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.configuration.pdb
-F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\CustomerDiscount.Application.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.Application.Contract.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.Domain.pdb
 F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.Infrastructure.EFCore.pdb
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.Application.dll
+F:\.Net Core Project\OnionShop\OnionShop\OnionShop\ServiceHost\bin\Debug\net8.0\DiscountManagement.Application.pdb

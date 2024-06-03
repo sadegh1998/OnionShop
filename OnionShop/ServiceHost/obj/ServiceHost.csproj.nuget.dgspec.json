@@ -134,12 +134,12 @@
         }
       }
     },
-    "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\CustomerDiscount.Application.csproj": {
+    "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\DiscountManagement.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\CustomerDiscount.Application.csproj",
-        "projectName": "CustomerDiscount.Application",
-        "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\CustomerDiscount.Application.csproj",
+        "projectUniqueName": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\DiscountManagement.Application.csproj",
+        "projectName": "DiscountManagement.Application",
+        "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\DiscountManagement.Application.csproj",
         "packagesPath": "C:\\Users\\sadegh\\.nuget\\packages\\",
         "outputPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\obj\\",
         "projectStyle": "PackageReference",
@@ -297,8 +297,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\CustomerDiscount.Application.csproj": {
-                "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\CustomerDiscount.Application.csproj"
+              "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\DiscountManagement.Application.csproj": {
+                "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\CustomerDiscount.Application\\DiscountManagement.Application.csproj"
               },
               "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\DiscountManagement.Domain\\DiscountManagement.Domain.csproj": {
                 "projectPath": "F:\\.Net Core Project\\OnionShop\\OnionShop\\OnionShop\\DiscountManagement.Domain\\DiscountManagement.Domain.csproj"

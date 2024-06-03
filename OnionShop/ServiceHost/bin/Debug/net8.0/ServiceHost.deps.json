@@ -1933,13 +1933,13 @@
           "0_Framework.dll": {}
         }
       },
-      "CustomerDiscount.Application/1.0.0": {
+      "DiscountManagement.Application/1.0.0": {
         "dependencies": {
           "DiscountManagement.Application.Contract": "1.0.0",
           "DiscountManagement.Domain": "1.0.0"
         },
         "runtime": {
-          "CustomerDiscount.Application.dll": {}
+          "DiscountManagement.Application.dll": {}
         }
       },
       "DiscountManagement.Application.Contract/1.0.0": {
@@ -1953,7 +1953,7 @@
       },
       "DiscountManagement.configuration/1.0.0": {
         "dependencies": {
-          "CustomerDiscount.Application": "1.0.0",
+          "DiscountManagement.Application": "1.0.0",
           "DiscountManagement.Domain": "1.0.0",
           "DiscountManagement.Infrastructure.EFCore": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1"
@@ -3203,7 +3203,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CustomerDiscount.Application/1.0.0": {
+    "DiscountManagement.Application/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

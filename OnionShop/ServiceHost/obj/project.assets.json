@@ -2890,7 +2890,7 @@
           "bin/placeholder/0_Framework.dll": {}
         }
       },
-      "CustomerDiscount.Application/1.0.0": {
+      "DiscountManagement.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -2898,10 +2898,10 @@
           "DiscountManagement.Domain": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/CustomerDiscount.Application.dll": {}
+          "bin/placeholder/DiscountManagement.Application.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CustomerDiscount.Application.dll": {}
+          "bin/placeholder/DiscountManagement.Application.dll": {}
         }
       },
       "DiscountManagement.Application.Contract/1.0.0": {
@@ -2922,7 +2922,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "CustomerDiscount.Application": "1.0.0",
+          "DiscountManagement.Application": "1.0.0",
           "DiscountManagement.Domain": "1.0.0",
           "DiscountManagement.Infrastructure.EFCore": "1.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.1"
@@ -8129,10 +8129,10 @@
       "path": "../0-Framework/0_Framework.csproj",
       "msbuildProject": "../0-Framework/0_Framework.csproj"
     },
-    "CustomerDiscount.Application/1.0.0": {
+    "DiscountManagement.Application/1.0.0": {
       "type": "project",
-      "path": "../CustomerDiscount.Application/CustomerDiscount.Application.csproj",
-      "msbuildProject": "../CustomerDiscount.Application/CustomerDiscount.Application.csproj"
+      "path": "../CustomerDiscount.Application/DiscountManagement.Application.csproj",
+      "msbuildProject": "../CustomerDiscount.Application/DiscountManagement.Application.csproj"
     },
     "DiscountManagement.Application.Contract/1.0.0": {
       "type": "project",
