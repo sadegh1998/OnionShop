@@ -53,7 +53,34 @@ namespace ServiceHost.Areas.Administrator.Pages.Inventory
             return new JsonResult(result);
 
         }
-       
+        public IActionResult OnGetIncrease(long id)
+        {
+            var inventory = new IncreaseInventory { 
+            InventoryId = id
+            };
+            return Partial("./Increase", inventory);
+        }
+        public JsonResult OnPostIncrease(IncreaseInventory command)
+        {
+            var result = _inventoryApplication.Increase(command);
+            return new JsonResult(result);
+
+        }
+        public IActionResult OnGetReduce(long id)
+        {
+            var inventory = new DecreaseInventory
+            {
+                InventoryId = id
+            };
+            return Partial("./Reduce", inventory);
+        }
+        public JsonResult OnPostReduce(DecreaseInventory command)
+        {
+            var result = _inventoryApplication.Reduce(command);
+            return new JsonResult(result);
+
+        }
+
 
     }
 }

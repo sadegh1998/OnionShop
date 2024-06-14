@@ -59,7 +59,7 @@ namespace InventoryManagement.Application
         public OperationResult Increase(IncreaseInventory command)
         {
             var operation = new OperationResult();
-            var inventory = _inventoryRepository.GetBy(command.InventoryId);
+            var inventory = _inventoryRepository.Get(command.InventoryId);
             if(inventory == null)
             {
                 return operation.Failed(ApplicationMessages.NotFound);
@@ -73,7 +73,7 @@ namespace InventoryManagement.Application
         public OperationResult Reduce(DecreaseInventory command)
         {
             var operation = new OperationResult();
-            var inventory = _inventoryRepository.GetBy(command.InventoryId);
+            var inventory = _inventoryRepository.Get(command.InventoryId);
             if (inventory == null)
             {
                 return operation.Failed(ApplicationMessages.NotFound);
