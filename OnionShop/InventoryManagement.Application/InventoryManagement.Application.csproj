@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\InventoryManagement.ApplicationContract\InventoryManagement.ApplicationContract.csproj" />
+    <ProjectReference Include="..\InventoryManagement.Domain\InventoryManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>
