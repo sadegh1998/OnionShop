@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\01_ShopQuery\01_ShopQuery.csproj" />
     <ProjectReference Include="..\DiscountManagement.configuration\DiscountManagement.configuration.csproj" />
+    <ProjectReference Include="..\InventoryManagement.Configuration\InventoryManagement.Configuration.csproj" />
     <ProjectReference Include="..\ShopManagement.Configuration\ShopManagement.Configuration.csproj" />
   </ItemGroup>
 

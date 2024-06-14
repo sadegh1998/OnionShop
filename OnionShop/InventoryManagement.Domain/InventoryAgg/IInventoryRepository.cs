@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagement.Domain.InventoryAgg
 {
-    public interface InventoryRepository : IRepository<long,Inventory>
+    public interface IInventoryRepository : IRepository<long,Inventory>
     {
         EditInventory GetDetails(long id);
         List<InventoryViewModel> Search(InventorySearchModel searchModel);
