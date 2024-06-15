@@ -1,4 +1,5 @@
 using InventoryManagement.ApplicationContract.Inventory;
+using InventoryManagement.Domain.InventoryAgg;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -78,6 +79,12 @@ namespace ServiceHost.Areas.Administrator.Pages.Inventory
         {
             var result = _inventoryApplication.Reduce(command);
             return new JsonResult(result);
+
+        }
+        public IActionResult OnGetOperationLogs(long id)
+        {
+            var logs = _inventoryApplication.GetOperationLog(id);
+            return Partial("./OperationLogs", logs);
 
         }
 

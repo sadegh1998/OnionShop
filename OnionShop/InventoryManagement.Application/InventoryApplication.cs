@@ -56,6 +56,11 @@ namespace InventoryManagement.Application
             return _inventoryRepository.GetDetails(id);
         }
 
+        public List<InventoryOperationsViewModel> GetOperationLog(long inventoryId)
+        {
+            return _inventoryRepository.GetOperationLog(inventoryId);
+        }
+
         public OperationResult Increase(IncreaseInventory command)
         {
             var operation = new OperationResult();
