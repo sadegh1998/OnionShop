@@ -29,13 +29,11 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
             ShortDescription = x.ShortDescription,
             Slug = x.Slug ,
             CategoryId = x.CategoryId,
-            IsInStock = x.IsInStock,
             Keywords = x.Keywords,
             MetaDescription = x.MetaDescription,
             Picture = x.Picture,
             PictureAlt = x.PictureAlt,
             PictureTitle = x.PictureTitle ,
-            UnitPrice = x.UnitPrice
             }).FirstOrDefault(x => x.Id == id);
 
         }
@@ -54,9 +52,7 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
             Name = x.Name ,
             Code = x.Code ,
             Picture = x.Picture ,
-            UnitPrice = x.UnitPrice ,
             CreationDate = x.CreationDate.ToString() , 
-            InStock = x.IsInStock,
             CategotyId = x.Category.Id,
             Category = x.Category.Name
             });

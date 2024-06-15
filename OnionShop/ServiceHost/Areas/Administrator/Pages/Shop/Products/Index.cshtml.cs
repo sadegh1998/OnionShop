@@ -54,25 +54,7 @@ namespace ServiceHost.Areas.Administrator.Pages.Shop.Products
             return new JsonResult(result);
 
         }
-        public IActionResult OnGetInStock(long id) { 
-        var result = _product.InStock(id);
 
-            if (result.IsSuccedded)
-               return RedirectToPage("./Index");
-
-            Message = result.Message;
-            return RedirectToPage("./Index");
-        }
-
-        public IActionResult OnGetNotInStock(long id) {
-        var result = _product.NotInStock(id);
-
-            if (result.IsSuccedded)
-                return RedirectToPage("./Index");
-
-            Message = result.Message;
-            return RedirectToPage("./Index");
-        }
 
     }
 }

@@ -6,9 +6,7 @@
         public string Name { get; set; }
         public string Picture { get; set; }
         public string Code { get; set; }
-        public double UnitPrice { get; set; }
         public string CreationDate { get; set; }
-        public bool InStock { get; set; }
         public long CategotyId{ get; set; }
         public string Category { get; set; }
     }
