@@ -18,5 +18,6 @@ namespace _01_ShopQuery.Contracts.ProductCategory
         public int DiscountRate { get; set; }
         public string Category { get; set; }
         public string  Slug { get; set; }
+        public bool HasDiscount { get; set; }
     }
 }

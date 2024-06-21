@@ -1,5 +1,6 @@
 ﻿using _0_Framework.Application;
 using _01_ShopQuery.Contracts.ProductCategory;
+using DiscountManagement.Infrastructure.EFCore;
 using InventoryManagement.InfrastructureEFCore;
 using Microsoft.EntityFrameworkCore;
 using ShopManagement.Domain.ProductAgg;
@@ -11,34 +12,41 @@ namespace _01_ShopQuery.Query
     {
         private readonly ShopContext _shopContext;
         private readonly InventoryContext _inventoryContext;
-        public ProductCategoryQuery(ShopContext shopContext, InventoryContext inventoryContext)
+        private readonly DiscountContext _discountContext;
+        public ProductCategoryQuery(ShopContext shopContext, InventoryContext inventoryContext, DiscountContext discountContext)
         {
             _shopContext = shopContext;
             _inventoryContext = inventoryContext;
+            _discountContext = discountContext;
         }
 
         public List<ProductCategoryQueryModel> GetProductCategories()
         {
-            return _shopContext.ProductCategories.Select(c => new ProductCategoryQueryModel {
-            
-            Id = c.Id,
-            Name = c.Name,
-            Picture = c.Picture,
-            PictureAlt = c.PictureAlt,
-            PictureTitle = c.PictureTitle,
-            Slug = c.Slug
+            return _shopContext.ProductCategories.Select(c => new ProductCategoryQueryModel
+            {
+
+                Id = c.Id,
+                Name = c.Name,
+                Picture = c.Picture,
+                PictureAlt = c.PictureAlt,
+                PictureTitle = c.PictureTitle,
+                Slug = c.Slug
             }).ToList();
         }
 
         public List<ProductCategoryQueryModel> GetProductCategoriesWithProduct()
         {
             var inventory = _inventoryContext.Inventories.Select(x => new { x.ProductId, x.UnitPrice }).ToList();
+            var discounts = _discountContext.CustomerDiscounts
+                .Where(x => x.StartDate < DateTime.Now && x.EndDate > DateTime.Now)
+                .Select(x => new { x.ProductId, x.DiscoutRate });
+
             var categories = _shopContext.ProductCategories
                 .Include(x => x.Products)
-                .ThenInclude(x=>x.Category)
-                .Select(x=> new ProductCategoryQueryModel
+                .ThenInclude(x => x.Category)
+                .Select(x => new ProductCategoryQueryModel
                 {
-                    Id = x.Id ,
+                    Id = x.Id,
                     Name = x.Name,
                     Products = MapProducts(x.Products)
                 }).ToList();
@@ -47,7 +55,22 @@ namespace _01_ShopQuery.Query
             {
                 foreach (var product in category.Products)
                 {
-                    product.Price = inventory.FirstOrDefault(x => x.ProductId == product.Id)?.UnitPrice.ToMoney();
+                    var productInventory = inventory.FirstOrDefault(x => x.ProductId == product.Id);
+                    if (productInventory != null)
+                    {
+                        var price = productInventory.UnitPrice;
+                        product.Price = price.ToMoney();
+
+                        var discount = discounts.FirstOrDefault(x => x.ProductId == product.Id);
+                        if (discount != null)
+                        {
+                            var discountRate = discount.DiscoutRate;
+                            product.DiscountRate = discountRate;
+                            product.HasDiscount = discountRate > 0;
+                            var discountAmount = Math.Round(price * discountRate) / 100;
+                            product.PriceWithDiscount = (price - discountAmount).ToMoney();
+                        }
+                    }
                 }
             }
 
@@ -66,7 +89,7 @@ namespace _01_ShopQuery.Query
                 Category = product.Category.Name,
                 Slug = product.Slug
             }).ToList();
-            
+
         }
     }
 }

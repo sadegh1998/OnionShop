@@ -69,7 +69,14 @@
                                                 <!--=======  single grid product  =======-->
                                                 <div class="single-grid-product">
                                                     <div class="single-grid-product__image">
+                                                        <div class="single-grid-product__label">
+                                                            @if (product.HasDiscount)
+                                                            {
+                                                                
+                                                            <span class="sale">-@product.DiscountRate%</span>
+                                                            }
 
+                                                        </div>
                                                         <a href="single-product.html">
                                                             <img src="~/Theme/assets/img/products/4-600x800.jpg" class="img-fluid"
                                                                  alt="">
@@ -107,7 +114,17 @@
                                                             </a>
                                                         </h3>
                                                         <p class="single-grid-product__price">
+                                                            @if (product.HasDiscount)
+                                                            {
+                                                                
+                                                            <span class="discounted-price">@product.PriceWithDiscount تومان</span>
+                                                                <span class="main-price discounted">@product.Price تومان</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                
                                                             <span class="main-price">@product.Price تومان</span>
+                                                            }
                                                         </p>
                                                     </div>
                                                 </div>
