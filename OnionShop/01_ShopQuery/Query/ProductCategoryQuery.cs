@@ -1,4 +1,5 @@
 ﻿using _0_Framework.Application;
+using _01_ShopQuery.Contracts.Product;
 using _01_ShopQuery.Contracts.ProductCategory;
 using DiscountManagement.Infrastructure.EFCore;
 using InventoryManagement.InfrastructureEFCore;
