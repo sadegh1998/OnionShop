@@ -63,7 +63,7 @@
                                     {"breakpoint":479, "settings": {"slidesToShow": 1, "arrows": false} }
                                 ]'>
                                     
-@foreach (var produc in item.Products)
+@foreach (var product in item.Products)
                                         {
                                             <div class="col">
                                                 <!--=======  single grid product  =======-->
@@ -90,7 +90,7 @@
                                                     <div class="single-grid-product__content">
                                                         <div class="single-grid-product__category-rating">
                                                             <span class="category">
-                                                                <a href="shop-left-sidebar.html">@produc.Slug</a>
+                                                                <a href="shop-left-sidebar.html">@product.Category</a>
                                                             </span>
                                                             <span class="rating">
                                                                 <i class="ion-android-star active"></i>
@@ -103,11 +103,11 @@
 
                                                         <h3 class="single-grid-product__title">
                                                             <a href="single-product.html">
-                                                                @produc.Name
+                                                                @product.Name
                                                             </a>
                                                         </h3>
                                                         <p class="single-grid-product__price">
-                                                            <span class="main-price">$120.00</span>
+                                                            <span class="main-price">@product.Price تومان</span>
                                                         </p>
                                                     </div>
                                                 </div>

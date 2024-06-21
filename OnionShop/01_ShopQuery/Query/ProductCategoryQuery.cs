@@ -1,22 +1,20 @@
-﻿using _01_ShopQuery.Contracts.ProductCategory;
+﻿using _0_Framework.Application;
+using _01_ShopQuery.Contracts.ProductCategory;
+using InventoryManagement.InfrastructureEFCore;
 using Microsoft.EntityFrameworkCore;
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Infrastracture.EFCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _01_ShopQuery.Query
 {
     public class ProductCategoryQuery : IProductCategoryQuery
     {
         private readonly ShopContext _shopContext;
-
-        public ProductCategoryQuery(ShopContext shopContext)
+        private readonly InventoryContext _inventoryContext;
+        public ProductCategoryQuery(ShopContext shopContext, InventoryContext inventoryContext)
         {
             _shopContext = shopContext;
+            _inventoryContext = inventoryContext;
         }
 
         public List<ProductCategoryQueryModel> GetProductCategories()
@@ -34,34 +32,41 @@ namespace _01_ShopQuery.Query
 
         public List<ProductCategoryQueryModel> GetProductCategoriesWithProduct()
         {
-            return _shopContext.ProductCategories.Include(x => x.Products)
+            var inventory = _inventoryContext.Inventories.Select(x => new { x.ProductId, x.UnitPrice }).ToList();
+            var categories = _shopContext.ProductCategories
+                .Include(x => x.Products)
                 .ThenInclude(x=>x.Category)
                 .Select(x=> new ProductCategoryQueryModel
                 {
                     Id = x.Id ,
                     Name = x.Name,
                     Products = MapProducts(x.Products)
-                })
-                .ToList();  
+                }).ToList();
+
+            foreach (var category in categories)
+            {
+                foreach (var product in category.Products)
+                {
+                    product.Price = inventory.FirstOrDefault(x => x.ProductId == product.Id)?.UnitPrice.ToMoney();
+                }
+            }
+
+            return categories;
         }
 
         private static List<ProductQueryModel> MapProducts(List<Product> products)
         {
-            var result = new List<ProductQueryModel>();
-            foreach (var product in products)
+            return products.Select(product => new ProductQueryModel
             {
-                var item = new ProductQueryModel { 
                 Id = product.Id,
                 Name = product.Name,
-                Picture  =product.Picture,
+                Picture = product.Picture,
                 PictureAlt = product.PictureAlt,
                 PictureTitle = product.PictureTitle,
                 Category = product.Category.Name,
                 Slug = product.Slug
-                };
-                result.Add(item);   
-            }
-            return result;
+            }).ToList();
+            
         }
     }
 }
