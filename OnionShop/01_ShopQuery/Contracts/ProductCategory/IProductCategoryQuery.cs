@@ -2,6 +2,7 @@
 {
     public interface IProductCategoryQuery
     {
+        ProductCategoryQueryModel GetProductCategoriesWithProductBy(string slug);
         List<ProductCategoryQueryModel> GetProductCategories();
         List<ProductCategoryQueryModel> GetProductCategoriesWithProduct();
 
