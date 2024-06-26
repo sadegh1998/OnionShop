@@ -8,6 +8,8 @@ namespace _01_ShopQuery.Contracts.Product
 {
     public interface IProductQuery
     {
+        ProductQueryModel GetProductDetails(string slug);
         List<ProductQueryModel> GetLatestProducts();
+        List<ProductQueryModel> Search(string value);
     }
 }

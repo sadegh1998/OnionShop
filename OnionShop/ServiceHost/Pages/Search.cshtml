@@ -1,9 +1,8 @@
 ﻿@page
-@model ServiceHost.Pages.ProductCategoryModel
+@model ServiceHost.Pages.SearchModel
 @{
-    ViewData["Title"]  = "گروه محصولات";
-}
 
+}
 <div class="breadcrumb-area section-space--half">
     <div class="container wide">
         <div class="row">
@@ -12,11 +11,8 @@
                 <div class="breadcrumb-wrapper breadcrumb-bg">
                     <!--=======  breadcrumb content  =======-->
                     <div class="breadcrumb-content">
-                        <h2 class="breadcrumb-content__title">@Model.ProductCategory.Name</h2>
-                        <ul class="breadcrumb-content__page-map">
-                            <li><a href="index.html">صفحه اصلی</a></li>
-                            <li class="active">@Model.ProductCategory.Name</li>
-                        </ul>
+                        <h2 class="breadcrumb-content__title">نتیجه جستجو برای @Model.Value</h2>
+                        
                     </div>
                     <!--=======  End of breadcrumb content  =======-->
                 </div>
@@ -74,7 +70,7 @@
                                 <div class="shop-page-content">
 
                                     <div class="row shop-product-wrap grid three-column">
-                                        @foreach (var product in Model.ProductCategory.Products)
+                                        @foreach (var product in Model.Products)
                                         {
                                             <div class="col-12 col-lg-4 col-md-4 col-sm-6">
                                                 <!--=======  product grid view  =======-->
@@ -84,13 +80,13 @@
                                                             @if (product.HasDiscount)
                                                             {
                                                                 <span class="sale">-@product.DiscountRate</span>
-                                                                
+
                                                             }
                                                         </div>
-                                                        <a asp-page="/Product" asp-route-id="@product.Slug">
+                                                        <a href="single-product.html">
                                                             <img src="~/Theme/assets/img/products/1-600x800.jpg" class="img-fluid"
                                                                  alt="@product.PictureAlt" title="@product.PictureTitle">
-                                                           
+
                                                         </a>
 
                                                         <div class="hover-icons">
@@ -119,7 +115,7 @@
 
                                                         <h3 class="single-grid-product__title">
                                                             <a asp-page="/ProductDetails">
-                                                               @product.Name
+                                                                @product.Name
                                                             </a>
                                                         </h3>
                                                         <p class="single-grid-product__price">
@@ -142,12 +138,12 @@
 
                                             </div>
                                         }
-                                        
-                                        
-                                        
-                                        
-                                        
-                                        
+
+
+
+
+
+
 
                                     </div>
 

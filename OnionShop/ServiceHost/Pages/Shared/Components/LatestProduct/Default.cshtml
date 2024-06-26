@@ -39,7 +39,7 @@
                         {"breakpoint":479, "settings": {"slidesToShow": 1, "arrows": false} }
                     ]'>
 
-                       @foreach (var product in Model)
+                        @foreach (var product in Model)
                         {
                             <div class="col">
                                 <!--=======  single grid product  =======-->
@@ -52,12 +52,12 @@
                                             }
                                             <span class="new">جدید</span>
                                         </div>
-                                        <a href="single-product.html">
+                                        <a asp-page="/Product" asp-route-id="@product.Slug">
                                             <img src="~/Theme/assets/img/products/1-600x800.jpg" class="img-fluid" alt="">
                                             <img src="~/Theme/assets/img/products/1_1-600x800.jpg" class="img-fluid" alt="">
                                         </a>
 
-                                        
+
                                     </div>
                                     <div class="single-grid-product__content">
                                         <div class="single-grid-product__category-rating">
@@ -72,7 +72,7 @@
                                         </div>
 
                                         <h3 class="single-grid-product__title">
-                                            <a href="single-product.html">
+                                            <a asp-page="/Product" asp-route-id="@product.Slug">
                                                 @product.Name
                                             </a>
                                         </h3>
@@ -89,15 +89,10 @@
                                         </p>
                                     </div>
                                 </div>
-                                <!--=======  End of single grid product  =======-->
                             </div>
                         }
-
-                      
-
                     </div>
                 </div>
-                <!--=======  End of single row slider wrapper  =======-->
             </div>
         </div>
     </div>
