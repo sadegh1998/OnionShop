@@ -1,5 +1,7 @@
+using _0_Framework.Application;
 using DiscountManagement.configuration;
 using InventoryManagement.Configuration;
+using ServiceHost;
 using ShopManagement.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,7 @@ builder.Services.AddRazorPages();
 ShopManagementBootstrapper.Configuration(builder.Services, ConnectionString);
 DiscountCustomerBootstrapper.Configure(builder.Services, ConnectionString);
 InventoryManagementBootstrapper.Configuration(builder.Services, ConnectionString);
+builder.Services.AddTransient<IFileUploader, FileUploader>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
