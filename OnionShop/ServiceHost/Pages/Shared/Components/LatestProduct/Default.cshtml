@@ -53,8 +53,7 @@
                                             <span class="new">جدید</span>
                                         </div>
                                         <a asp-page="/Product" asp-route-id="@product.Slug">
-                                            <img src="~/Theme/assets/img/products/1-600x800.jpg" class="img-fluid" alt="">
-                                            <img src="~/Theme/assets/img/products/1_1-600x800.jpg" class="img-fluid" alt="">
+                                            <img src="~/ProductPictures/@product.Picture" class="img-fluid" alt="@product.PictureAlt" title="@product.PictureTitle">
                                         </a>
 
 

@@ -25,7 +25,6 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
             Title = x.Title,
             BtnText = x.BtnText,
             Heading = x.Heading,
-            Picture = x.Picture,
             PictureAlt = x.PictureAlt,
             PictureTitle = x.PictureTitle,
             Text = x.Text,
