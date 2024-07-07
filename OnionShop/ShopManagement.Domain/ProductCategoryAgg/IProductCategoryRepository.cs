@@ -11,7 +11,7 @@ namespace ShopManagement.Domain.ProductCategoryAgg
 {
     public interface IProductCategoryRepository:IRepository<long,ProductCategory>
     {
-
+        string GetSlugby(long id);
         List<ProductCategoryViewModel> GetProductCategories();
         List<ProductCategory> Search(string name);
 

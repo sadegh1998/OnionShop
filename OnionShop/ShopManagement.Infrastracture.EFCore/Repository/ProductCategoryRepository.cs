@@ -27,6 +27,11 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
             }).ToList();    
         }
 
+        public string GetSlugby(long id)
+        {
+            return _shopContext.ProductCategories.FirstOrDefault(x => x.Id == id).Slug;
+        }
+
         public List<ProductCategory> Search(string name)
         {
             var productCategory = _shopContext.ProductCategories.Select(x=>x);
