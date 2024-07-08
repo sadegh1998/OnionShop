@@ -214,8 +214,8 @@
                                                 <a class="nav-item nav-link active" id="description-tab"
                                                    data-toggle="tab" href="#product-description" role="tab"
                                                    aria-selected="true">توضیحات</a>
-                                              @*   <a class="nav-item nav-link" id="review-tab" data-toggle="tab"
-                                                   href="#review" role="tab" aria-selected="false">نظرات (@Model.Product.Comments.Count)</a> *@
+                                                <a class="nav-item nav-link" id="review-tab" data-toggle="tab"
+                                                   href="#review" role="tab" aria-selected="false">نظرات (@Model.Product.Comments.Count)</a>
                                             </div>
                                         </nav>
                                         <div class="tab-content" id="nav-tabContent">
@@ -229,7 +229,19 @@
                                                  aria-labelledby="review-tab">
                                                 <div class="product-rating-wrap">
                                                   
-                                                   
+                                                   @foreach (var comment in Model.Product.Comments)
+                                                    {
+                                                        <div class="ratings-wrapper">
+                                                            <div class="sin-ratings">
+                                                                <div class="rating-author">
+                                                                    <h3>@comment.Name</h3>
+                                                                </div>
+                                                                <p>
+                                                                    @comment.Message
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    }
 
                                                     <div class="rating-form-wrapper fix">
                                                         <h3>نظر خود را به ما بگویید</h3>
@@ -247,7 +259,7 @@
                                                                     <label for="your-review">نظر شما:</label>
                                                                     <textarea name="message" id="message" placeholder="نظر خود را بنویسید ..."></textarea>
                                                                 </div>
-                                                                <input type="hidden" name="ownerRecordId" value="@Model.Product.Id" />
+                                                                <input type="hidden" name="productId" value="@Model.Product.Id" />
                                                                 @*<input type="hidden" name="type" value="@CommnetManagement.Infrastructure.EFCore.CommentType.Product" />*@
                                                                 <input type="hidden" name="productSlug" value="@Model.Product.Slug" />
                                                                 <div class="col-12">

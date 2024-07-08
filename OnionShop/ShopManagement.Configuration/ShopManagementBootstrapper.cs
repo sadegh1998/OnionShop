@@ -5,10 +5,12 @@ using _01_ShopQuery.Query;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ShopManagement.Application;
+using ShopManagement.ApplicationContract.Comment;
 using ShopManagement.ApplicationContract.Product;
 using ShopManagement.ApplicationContract.ProductCategory;
 using ShopManagement.ApplicationContract.ProductPicture;
 using ShopManagement.ApplicationContract.Slide;
+using ShopManagement.Domain.CommentAgg;
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
 using ShopManagement.Domain.ProiductPictureAgg;
@@ -33,7 +35,8 @@ namespace ShopManagement.Configuration
             services.AddTransient<ISlideQuery, SlideQuery>();
             services.AddTransient<IProductCategoryQuery, ProductCategoryQuery>();
             services.AddTransient<IProductQuery, ProductQuery>();
-
+            services.AddTransient<ICommentRepository, CommentRepository>();
+            services.AddTransient<ICommentApplication, CommentApplication>();
 
 
             services.AddDbContext<ShopContext>(x => x.UseSqlServer(connectionString));
