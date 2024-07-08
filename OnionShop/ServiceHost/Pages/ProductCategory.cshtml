@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{id}"
 @model ServiceHost.Pages.ProductCategoryModel
 @{
     ViewData["Title"]  = "گروه محصولات";
@@ -14,8 +14,8 @@
                     <div class="breadcrumb-content">
                         <h2 class="breadcrumb-content__title">@Model.ProductCategory.Name</h2>
                         <ul class="breadcrumb-content__page-map">
-                            <li><a href="index.html">صفحه اصلی</a></li>
-                            <li class="active">@Model.ProductCategory.Name</li>
+                            <li><a asp-page="/Index">صفحه اصلی</a></li>
+                            <li asp-page="/ProductCategory" asp-route-id="@Model.ProductCategory.Slug">@Model.ProductCategory.Name</li>
                         </ul>
                     </div>
                     <!--=======  End of breadcrumb content  =======-->
@@ -106,7 +106,7 @@
                                                     <div class="single-grid-product__content">
                                                         <div class="single-grid-product__category-rating">
                                                             <span class="category">
-                                                                <a href="shop-left-sidebar.html">Decor</a>
+                                                                <a asp-page="/ProductCategory" asp-route-id="@Model.ProductCategory.Slug">@Model.ProductCategory.Name</a>
                                                             </span>
                                                             <span class="rating">
                                                                 <i class="ion-android-star active"></i>
