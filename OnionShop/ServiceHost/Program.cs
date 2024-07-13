@@ -1,4 +1,5 @@
 using _0_Framework.Application;
+using BlogManagement.Configuration;
 using DiscountManagement.configuration;
 using InventoryManagement.Configuration;
 using ServiceHost;
@@ -12,6 +13,8 @@ builder.Services.AddRazorPages();
 ShopManagementBootstrapper.Configuration(builder.Services, ConnectionString);
 DiscountCustomerBootstrapper.Configure(builder.Services, ConnectionString);
 InventoryManagementBootstrapper.Configuration(builder.Services, ConnectionString);
+BlogManagementBootstrapper.Configure(builder.Services, ConnectionString);
+
 builder.Services.AddTransient<IFileUploader, FileUploader>();
 var app = builder.Build();
 
