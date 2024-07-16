@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\01_ShopQuery\01_ShopQuery.csproj" />
     <ProjectReference Include="..\BlogManagement.Application\BlogManagement.Application.csproj" />
     <ProjectReference Include="..\BlogManagement.Domain\BlogManagement.Domain.csproj" />
     <ProjectReference Include="..\BlogManagement.Infrastructure.EfCore\BlogManagement.Infrastructure.EfCore.csproj" />

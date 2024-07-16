@@ -1,4 +1,6 @@
-﻿<div class="header-area header-sticky">
+﻿@model _01_ShopQuery.MenuModel
+
+<div class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -23,10 +25,29 @@
                                 <li class="menu-item-has-children">
                                     <a href="blog-left-sidebar.html">گروه محصولات</a>
                                     <ul class="sub-menu">
-                                        <li>
-                                            <a href="blog-left-sidebar.html">تست</a>
-                                        </li>
+                                   @foreach (var productCategory in Model.ProductCategories)
+                                    {
                                        
+                                            <li>
+                                                <a asp-page="/ProductCategory" asp-route-id="@productCategory.Slug">@productCategory.Name</a>
+                                            </li>
+
+                                   
+                                    }
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    <a href="blog-left-sidebar.html">گروه مقالات</a>
+                                    <ul class="sub-menu">
+                                    @foreach (var articleCategory in Model.ArticleCategories)
+                                    {
+                                        
+                                            <li>
+                                                <a asp-page="/ArticleCategory" asp-route-id="@articleCategory.Slug">@articleCategory.Name</a>
+                                            </li>
+
+                                        
+                                    }
                                     </ul>
                                 </li>
 

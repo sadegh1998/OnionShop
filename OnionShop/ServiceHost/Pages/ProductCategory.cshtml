@@ -2,6 +2,8 @@
 @model ServiceHost.Pages.ProductCategoryModel
 @{
     ViewData["Title"]  = "گروه محصولات";
+    ViewData["keywords"] = Model.ProductCategory.Keywords;
+    ViewData["metaDescription"] = Model.ProductCategory.MetaDescription;
 }
 
 <div class="breadcrumb-area section-space--half">
