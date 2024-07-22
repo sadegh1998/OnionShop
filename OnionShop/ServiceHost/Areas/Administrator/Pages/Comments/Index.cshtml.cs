@@ -1,15 +1,14 @@
+using CommentManagement.Application;
+using CommentManagement.ApplicationContract.Comment;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ShopManagement.ApplicationContract.Comment;
-using ShopManagement.ApplicationContract.Slide;
-
-namespace ServiceHost.Areas.Administrator.Pages.Shop.Comments
+namespace ServiceHost.Areas.Administrator.Pages.Comments
 {
     public class IndexModel : PageModel
     {
         [TempData]
         public string Message { get; set; }
-        public List<CommentViewModel> comments{ get; set; }
+        public List<CommentViewModel> comments { get; set; }
         public CommentSearchModel searchModel { get; set; }
         private readonly ICommentApplication _commentApplication;
 
@@ -22,20 +21,22 @@ namespace ServiceHost.Areas.Administrator.Pages.Shop.Comments
         {
             comments = _commentApplication.Search(searchModel);
         }
-        
-       
-        public IActionResult OnGetCancel(long id) { 
-        var result = _commentApplication.Cancel(id);
+
+
+        public IActionResult OnGetCancel(long id)
+        {
+            var result = _commentApplication.Cancel(id);
 
             if (result.IsSuccedded)
-               return RedirectToPage("./Index");
+                return RedirectToPage("./Index");
 
             Message = result.Message;
             return RedirectToPage("./Index");
         }
 
-        public IActionResult OnGetConfirm(long id) {
-        var result = _commentApplication.Confirm(id);
+        public IActionResult OnGetConfirm(long id)
+        {
+            var result = _commentApplication.Confirm(id);
 
             if (result.IsSuccedded)
                 return RedirectToPage("./Index");

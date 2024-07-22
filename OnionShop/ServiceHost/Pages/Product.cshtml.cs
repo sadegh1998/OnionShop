@@ -1,8 +1,8 @@
 using _01_ShopQuery.Contracts.Product;
-using _01_ShopQuery.Query;
+using CommentMamagement.Infrastructure.EFCore;
+using CommentManagement.ApplicationContract.Comment;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using ShopManagement.ApplicationContract.Comment;
 
 namespace ServiceHost.Pages
 {
@@ -22,10 +22,11 @@ namespace ServiceHost.Pages
         {
             Product = _productQuery.GetProductDetails(id);
         }
-        public IActionResult OnPost(AddComment comment)
+        public IActionResult OnPost(AddComment comment,string productSlug)
         {
+            comment.Type = CommentType.Product;
             var result = _commentApplication.Add(comment);
-            return RedirectToPage("/Product", new {Id = comment.productSlug});
+            return RedirectToPage("/Product", new {Id = productSlug });
         }
     }
 }

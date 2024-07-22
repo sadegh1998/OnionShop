@@ -1,5 +1,6 @@
 using _0_Framework.Application;
 using BlogManagement.Configuration;
+using CommentManagement.Configuration;
 using DiscountManagement.configuration;
 using InventoryManagement.Configuration;
 using ServiceHost;
@@ -16,6 +17,8 @@ ShopManagementBootstrapper.Configuration(builder.Services, ConnectionString);
 DiscountCustomerBootstrapper.Configure(builder.Services, ConnectionString);
 InventoryManagementBootstrapper.Configuration(builder.Services, ConnectionString);
 BlogManagementBootstrapper.Configure(builder.Services, ConnectionString);
+CommentManagementBootstrapper.Configuration(builder.Services, ConnectionString);
+
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
 
 builder.Services.AddTransient<IFileUploader, FileUploader>();

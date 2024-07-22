@@ -1,12 +1,11 @@
 ﻿using _0_Framework.Application;
+using _01_ShopQuery.Contracts.Comment;
 using _01_ShopQuery.Contracts.Product;
+using CommentMamagement.Infrastructure.EFCore;
 using DiscountManagement.Infrastructure.EFCore;
 using InventoryManagement.InfrastructureEFCore;
 using Microsoft.EntityFrameworkCore;
-using ShopManagement.Domain.CommentAgg;
-using ShopManagement.Domain.ProiductPictureAgg;
 using ShopManagement.Infrastracture.EFCore;
-using ShopManagement.Infrastracture.EFCore.Migrations;
 namespace _01_ShopQuery.Query
 {
     public class ProductQuery : IProductQuery
@@ -14,12 +13,14 @@ namespace _01_ShopQuery.Query
         private readonly ShopContext _shopContext;
         private readonly InventoryContext _inventoryContext;
         private readonly DiscountContext _discountContext;
+        private readonly CommentContext _commentContext;
 
-        public ProductQuery(ShopContext shopContext, InventoryContext inventoryContext, DiscountContext discountContext)
+        public ProductQuery(ShopContext shopContext, InventoryContext inventoryContext, DiscountContext discountContext, CommentContext commentContext)
         {
             _shopContext = shopContext;
             _inventoryContext = inventoryContext;
             _discountContext = discountContext;
+            _commentContext = commentContext;
         }
 
         public List<ProductQueryModel> GetLatestProducts()
@@ -69,11 +70,9 @@ namespace _01_ShopQuery.Query
             var discounts = _discountContext.CustomerDiscounts
                 .Where(x => x.StartDate < DateTime.Now && x.EndDate > DateTime.Now)
                 .Select(x => new { x.ProductId, x.DiscoutRate, x.EndDate });
-
             var product = _shopContext.Products
                 .Include(x => x.Category)
                 .Include(x => x.ProductPictures)
-                .Include(x=>x.Comments)
                 .Select(x => new ProductQueryModel
                 {
 
@@ -91,7 +90,7 @@ namespace _01_ShopQuery.Query
                     MetaDescription = x.MetaDescription,
                     ShortDescription = x.ShortDescription,
                     Pictures = MapProductPictures(x.ProductPictures),
-                    Comments = MapComments(x.Comments)
+                   // Comments = MapComments(x.Comments)
 
                 }).FirstOrDefault(x => x.Slug == slug);
 
@@ -118,18 +117,30 @@ namespace _01_ShopQuery.Query
                     product.PriceWithDiscount = (price - discountAmount).ToMoney();
                 }
             }
+
+            product.Comments = _commentContext.Comments
+                .Where(x=>x.Type == CommentType.Product)
+                .Where(x => !x.IsCanceled)
+                .Where(x=> x.IsConfirmed)
+                .Where(x=>x.OwnerRecordId == product.Id)
+                .Select(x => new CommentQueryModel
+                {
+           Id = x.Id,
+           Message = x.Message,
+           Name = x.Name,
+           }).OrderByDescending(x=>x.Id).ToList();
             return product;
         }
 
-        private static List<CommentQueryModel> MapComments(List<Comment> comments)
-        {
-            return comments.Where(x => !x.IsCanceled && x.IsConfirmed).Select(x => new CommentQueryModel { 
-            Id = x.Id,
-            Message = x.Message,
-            Name = x.Name,
-            ProductId = x.ProductId
-            }).OrderByDescending(x=>x.Id).ToList();
-        }
+        //private static List<CommentQueryModel> MapComments(List<Comment> comments)
+        //{
+        //    return comments.Where(x => !x.IsCanceled && x.IsConfirmed).Select(x => new CommentQueryModel { 
+        //    Id = x.Id,
+        //    Message = x.Message,
+        //    Name = x.Name,
+        //    ProductId = x.ProductId
+        //    }).OrderByDescending(x=>x.Id).ToList();
+        //}
 
         private static List<ProductPictureQueryModel> MapProductPictures(List<ShopManagement.Domain.ProiductPictureAgg.ProductPicture> productPictures)
         {

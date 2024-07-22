@@ -10,6 +10,8 @@
     <ProjectReference Include="..\01_ShopQuery\01_ShopQuery.csproj" />
     <ProjectReference Include="..\BlogManagement.ApplicationContract\BlogManagement.Application.Contract.csproj" />
     <ProjectReference Include="..\BlogManagement.Configuration\BlogManagement.Configuration.csproj" />
+    <ProjectReference Include="..\CommentMamagement.Configuration\CommentManagement.Configuration.csproj" />
+    <ProjectReference Include="..\CommentManagement.Application\CommentManagement.Application.csproj" />
     <ProjectReference Include="..\DiscountManagement.configuration\DiscountManagement.configuration.csproj" />
     <ProjectReference Include="..\InventoryManagement.Configuration\InventoryManagement.Configuration.csproj" />
     <ProjectReference Include="..\ShopManagement.Configuration\ShopManagement.Configuration.csproj" />

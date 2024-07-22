@@ -1,13 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using CommentManagement.Domain.CommentAgg;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ShopManagement.Domain.CommentAgg;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ShopManagement.Infrastracture.EFCore.Mapping
+namespace CommentMamagement.Infrastracture.EFCore.Mapping
 {
     public class CommentMapping : IEntityTypeConfiguration<Comment>
     {
@@ -15,13 +10,13 @@ namespace ShopManagement.Infrastracture.EFCore.Mapping
         {
             builder.ToTable("Comments");
             builder.HasKey(x => x.Id);
-
             builder.Property(x=>x.Name).HasMaxLength(500);
             builder.Property(x => x.Email).HasMaxLength(500);
+            builder.Property(x => x.WebSite).HasMaxLength(500).IsRequired(false);
             builder.Property(x => x.Message).HasMaxLength(1000);
 
-            builder.HasOne(x => x.Product).WithMany(x => x.Comments).HasForeignKey(x=>x.ProductId);
-
+           
+             
 
         }
     }

@@ -1,12 +1,6 @@
 ﻿using _0_Framework.Domain;
-using ShopManagement.Domain.CommentAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
 using ShopManagement.Domain.ProiductPictureAgg;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ShopManagement.Domain.ProductAgg
 {
@@ -25,7 +19,7 @@ namespace ShopManagement.Domain.ProductAgg
         public long CategoryId { get; private set; }
         public ProductCategory Category{ get; private set; }
         public List<ProductPicture> ProductPictures { get; private set; }
-        public List<Comment> Comments{ get; private set; }
+        //public List<Comment> Comments{ get; private set; }
 
         public Product(string name, string code, string description, string shortDescription, string picture, string pictureAlt, string pictureTitle, string slug, string keywords, string metaDescription, long categoryId)
         {
