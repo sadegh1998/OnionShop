@@ -10,5 +10,7 @@ namespace _0_Framework.Application
     {
         public const string Duplicate = "رکوردی دیگری با همین عنوان یافت شد . نام دیگری وارد کنید";
         public const string NotFound = "رکوردی با مشخصات وارد شده پیدا نشد . مججددا تلاش نمایید";
+        public const string PasswordNotMatch = "";
+        public const string UserIsRegisterd = "";
     }
 }

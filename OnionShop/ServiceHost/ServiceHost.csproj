@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\01_ShopQuery\01_ShopQuery.csproj" />
+    <ProjectReference Include="..\AccountManagement.Configuration\AccountManagement.Configuration.csproj" />
     <ProjectReference Include="..\BlogManagement.ApplicationContract\BlogManagement.Application.Contract.csproj" />
     <ProjectReference Include="..\BlogManagement.Configuration\BlogManagement.Configuration.csproj" />
     <ProjectReference Include="..\CommentMamagement.Configuration\CommentManagement.Configuration.csproj" />

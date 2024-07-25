@@ -1,4 +1,5 @@
 using _0_Framework.Application;
+using AccountManagement.Configuration;
 using BlogManagement.Configuration;
 using CommentManagement.Configuration;
 using DiscountManagement.configuration;
@@ -18,7 +19,7 @@ DiscountCustomerBootstrapper.Configure(builder.Services, ConnectionString);
 InventoryManagementBootstrapper.Configuration(builder.Services, ConnectionString);
 BlogManagementBootstrapper.Configure(builder.Services, ConnectionString);
 CommentManagementBootstrapper.Configuration(builder.Services, ConnectionString);
-
+AccountBootstrapper.Configure(builder.Services , ConnectionString);
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
 
 builder.Services.AddTransient<IFileUploader, FileUploader>();
