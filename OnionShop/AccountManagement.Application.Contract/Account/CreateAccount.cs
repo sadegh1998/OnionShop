@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AccountManagement.Application.Contract.Role;
+using Microsoft.AspNetCore.Http;
 
 namespace AccountManagement.Application.Contract.Account
 {
@@ -9,6 +10,7 @@ namespace AccountManagement.Application.Contract.Account
         public string Password { get; set; }
         public string Mobile { get; set; }
         public long RoleId { get; set; }
+        public List<RoleViewModel> Roles { get; set; }
         public IFormFile ProfilePicture { get; set; }
     }
 }
