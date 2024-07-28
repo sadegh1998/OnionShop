@@ -2,6 +2,7 @@
 using _0_Framework.Domain;
 using AccountManagement.Application.Contract.Account;
 using AccountManagement.Domain.AccountAgg;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,14 +34,14 @@ namespace AccountManagement.Infrastructure.EFCore.Repository
 
         public List<AccountViewModel> Search(AccountSearchModel search)
         {
-            var query = _context.Accounts.Select(x => new AccountViewModel { 
+            var query = _context.Accounts.Include(x=>x.Role).Select(x => new AccountViewModel { 
             Id = x.Id,
             Username= x.Username,
             FullName = x.FullName ,
             Mobile = x.Mobile,
             ProfilePicture = x.ProfilePicture,
             RoleId = x.RoleId,
-            Role = "Admin",
+            Role = x.Role.Name,
             CreationDate = x.CreationDate.ToFarsi()
             });
 

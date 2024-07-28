@@ -1,4 +1,5 @@
 using AccountManagement.Application.Contract.Account;
+using AccountManagement.Application.Contract.Role;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -15,22 +16,24 @@ namespace ServiceHost.Areas.Administrator.Pages.Account.Users
         public List<AccountViewModel> Accounts{ get; set; }
         public SelectList Roles { get; set; }
         private readonly IAccountApplication _accountApplication;
+        private readonly IRoleApplication _roleApplication;
 
-        public IndexModel(IAccountApplication accountApplication)
+        public IndexModel(IAccountApplication accountApplication, IRoleApplication roleApplication)
         {
             _accountApplication = accountApplication;
+            _roleApplication = roleApplication;
         }
 
         public void OnGet(AccountSearchModel searchModel)
         {
-            //ProductCategories = new SelectList(_accountApplicationCategory.GetProductCategories(), "Id", "Name");
+            Roles = new SelectList(_roleApplication.List(), "Id", "Name");
             Accounts = _accountApplication.Search(searchModel);
         }
         
         public IActionResult OnGetCreate()
         {
             var command = new CreateAccount();
-            //command.Categories = _accountApplicationCategory.GetProductCategories();
+            command.Roles = _roleApplication.List();
             return Partial("./Create", command);
         }
         public JsonResult OnPostCreate( CreateAccount command)
@@ -43,7 +46,7 @@ namespace ServiceHost.Areas.Administrator.Pages.Account.Users
         public IActionResult OnGetEdit(long id)
         {
             var account = _accountApplication.GetDetails(id);
-            //product.Categories = _accountApplicationCategory.GetProductCategories();
+            account.Roles = _roleApplication.List();
             return Partial("./Edit", account);
         }
         public JsonResult OnPostEdit(EditAccount command)
@@ -52,7 +55,17 @@ namespace ServiceHost.Areas.Administrator.Pages.Account.Users
             return new JsonResult(result);
 
         }
+        public IActionResult OnGetChangePassword(long id)
+        {
+            var command = new ChanagePassword { Id = id};
+            return Partial("./ChangePassword",command);
+        }
+        public JsonResult OnPostChangePassword(ChanagePassword commad)
+        {
+            var result = _accountApplication.ChangePassword(commad);
+            return new JsonResult(result);
 
+        }
 
     }
 }
