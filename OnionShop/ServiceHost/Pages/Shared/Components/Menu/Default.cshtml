@@ -1,5 +1,5 @@
 ﻿@model _01_ShopQuery.MenuModel
-
+@inject _0_Framework.Application.IAuthHelper authHelper;
 <div class="header-area header-sticky">
     <div class="container">
         <div class="row">
@@ -54,6 +54,19 @@
                                 <li>
                                     <a href="./Contact">تماس با ما</a>
                                 </li>
+                                @if (authHelper.IsAuthenticated())
+                                {
+                                    <li>
+                                        <a asp-page="/Account" asp-page-handler="Logout">خروج</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li>
+                                        <a asp-page="/Account" asp-page-handler="Login">ورود</a>
+                                    </li>
+                                }
+                               
                             </ul>
                         </nav>
                     </div>
