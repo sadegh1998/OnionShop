@@ -1,4 +1,5 @@
 using _0_Framework.Application;
+using _0_Framework.Infrstructure;
 using AccountManagement.Configuration;
 using BlogManagement.Configuration;
 using CommentManagement.Configuration;
@@ -36,7 +37,18 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         o.AccessDeniedPath = new PathString("/AccessDenied");
         }
 
-    ); 
+    );
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminArea", builder => builder.RequireRole(Roles.Administrator));
+    options.AddPolicy("Shop", builder => builder.RequireRole(Roles.Administrator));
+});
+
+builder.Services.AddRazorPages().AddRazorPagesOptions(options=> {
+    options.Conventions.AuthorizeAreaFolder("Administrator", "/", "AdminArea");
+    options.Conventions.AuthorizeAreaFolder("Administrator", "/Shop", "Shop");
+    });
 
 var app = builder.Build();
 

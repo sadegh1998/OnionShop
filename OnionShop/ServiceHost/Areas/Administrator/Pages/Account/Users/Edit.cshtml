@@ -57,13 +57,13 @@
                     <span asp-validation-for="ProfilePicture" class="error"></span>
                 </div>
             </div>
-            <div class="col-md-6">
+            @* <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="Password" class="control-label">پسورد</label>
                     <input type="password" class="form-control" asp-for="Password" accept="image/*">
                     <span asp-validation-for="Password" class="error"></span>
                 </div>
-            </div>
+            </div> *@
         </div>
         <input type="hidden" asp-for="Id" value="@Model.Id" />
     </div>

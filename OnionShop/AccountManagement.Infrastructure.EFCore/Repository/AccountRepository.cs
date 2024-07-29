@@ -28,7 +28,7 @@ namespace AccountManagement.Infrastructure.EFCore.Repository
         public EditAccount GetDetails(long id)
         {
             return _context.Accounts.Select(x => new EditAccount {
-            Id = id,
+            Id = x.Id,
             FullName = x.FullName,  
             Mobile = x.Mobile,
             RoleId = x.RoleId,

@@ -62,7 +62,7 @@ namespace AccountManagement.Application
         public OperationResult Edit(EditAccount command)
         {
             var operation = new OperationResult();
-            if (_accountRepository.Exisit(x => x.Username == command.Username || x.Mobile == command.Mobile && x.Id != command.Id))
+            if (_accountRepository.Exisit(x => (x.Username == command.Username || x.Mobile == command.Mobile) && x.Id != command.Id))
             {
                 return operation.Failed(ApplicationMessages.UserIsRegisterd);
             }
@@ -74,7 +74,7 @@ namespace AccountManagement.Application
             }
             var path = $"ProfilePictures";
             var profilePicture = _fileUploader.Upload(command.ProfilePicture, path);
-            account.Edit(command.FullName, command.Username, command.Mobile, 1, profilePicture);
+            account.Edit(command.FullName, command.Username, command.Mobile, command.RoleId, profilePicture);
             _accountRepository.SaveChanges();
             return operation.Success();
         }

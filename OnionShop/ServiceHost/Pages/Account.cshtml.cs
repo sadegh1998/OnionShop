@@ -30,7 +30,7 @@ namespace ServiceHost.Pages
             return RedirectToPage("/Account");
 
         }
-        public IActionResult OnPostLogout()
+        public IActionResult OnGetLogout()
         {
             _accountApplication.Logout();
             return RedirectToPage("/Index");

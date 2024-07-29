@@ -19,6 +19,16 @@ namespace _0_Framework.Application
             _contextAccessor = contextAccessor;
         }
 
+        public string CurrentAccountRole()
+        {
+            if (IsAuthenticated())
+            {
+                return _contextAccessor.HttpContext.User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.Role).Value;
+            }
+
+            return null;
+        }
+
         public bool IsAuthenticated()
         {
            var claims = _contextAccessor.HttpContext.User.Claims.ToList();
