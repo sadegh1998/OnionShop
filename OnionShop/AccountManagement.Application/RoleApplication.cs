@@ -26,7 +26,7 @@ namespace AccountManagement.Application
                 return operation.Failed(ApplicationMessages.Duplicate);
             }
 
-            var role = new Role(command.Name);
+            var role = new Role(command.Name, new List<Permission>());
             _roleRepository.Create(role);
             _roleRepository.SaveChanges();
             return operation.Success();
@@ -48,7 +48,7 @@ namespace AccountManagement.Application
             }
           
 
-            role.Edit(command.Name);
+            role.Edit(command.Name,new List<Permission>());
             _roleRepository.SaveChanges();
             return operation.Success();
         }
