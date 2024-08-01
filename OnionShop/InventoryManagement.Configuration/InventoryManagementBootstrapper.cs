@@ -1,5 +1,7 @@
-﻿using InventoryManagement.Application;
+﻿using _0_Framework.Infrstructure;
+using InventoryManagement.Application;
 using InventoryManagement.ApplicationContract.Inventory;
+using InventoryManagement.Configuration.Permissions;
 using InventoryManagement.Domain.InventoryAgg;
 using InventoryManagement.InfrastructureEFCore;
 using InventoryManagement.InfrastructureEFCore.Repository;
@@ -19,6 +21,8 @@ namespace InventoryManagement.Configuration
         {
             services.AddTransient<IInventoryRepository, InventoryRepository>();
             services.AddTransient<IInventoryApplication, InventoryApplication>();
+
+            services.AddTransient<IPermissionExposer, InventoryPermissionExposer>();
             services.AddDbContext<InventoryContext>(x => x.UseSqlServer(connectionString));
 
         }

@@ -1,4 +1,5 @@
-﻿using _01_ShopQuery.Contracts.Product;
+﻿using _0_Framework.Infrstructure;
+using _01_ShopQuery.Contracts.Product;
 using _01_ShopQuery.Contracts.ProductCategory;
 using _01_ShopQuery.Contracts.Slide;
 using _01_ShopQuery.Query;
@@ -9,6 +10,7 @@ using ShopManagement.ApplicationContract.Product;
 using ShopManagement.ApplicationContract.ProductCategory;
 using ShopManagement.ApplicationContract.ProductPicture;
 using ShopManagement.ApplicationContract.Slide;
+using ShopManagement.Configuration.Permissions;
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
 using ShopManagement.Domain.ProiductPictureAgg;
@@ -33,7 +35,9 @@ namespace ShopManagement.Configuration
             services.AddTransient<ISlideQuery, SlideQuery>();
             services.AddTransient<IProductCategoryQuery, ProductCategoryQuery>();
             services.AddTransient<IProductQuery, ProductQuery>();
-            
+            services.AddTransient<IPermissionExposer, ShopPermissionExposer>();
+
+
 
 
             services.AddDbContext<ShopContext>(x => x.UseSqlServer(connectionString));
