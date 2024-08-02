@@ -1,5 +1,5 @@
 ﻿using _0_Framework.Application;
-using _0_Framework.Domain;
+using _0_Framework.Infrstructure;
 using AccountManagement.Application.Contract.Account;
 using AccountManagement.Domain.AccountAgg;
 using Microsoft.EntityFrameworkCore;

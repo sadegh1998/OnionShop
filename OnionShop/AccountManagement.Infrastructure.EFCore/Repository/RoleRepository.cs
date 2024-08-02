@@ -1,5 +1,4 @@
-﻿using _0_Framework.Domain;
-using _0_Framework.Infrstructure;
+﻿using _0_Framework.Infrstructure;
 using AccountManagement.Application.Contract.Role;
 using AccountManagement.Domain.RoleAgg;
 using Microsoft.EntityFrameworkCore;

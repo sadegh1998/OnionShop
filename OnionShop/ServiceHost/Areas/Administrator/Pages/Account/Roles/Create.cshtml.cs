@@ -18,10 +18,10 @@ namespace ServiceHost.Areas.Administrator.Pages.Account.Roles
         {
         }
        
-        public JsonResult OnPost(CreateRole command)
+        public IActionResult OnPost(CreateRole command)
         {
             var result = _roleApplication.Create(command);
-            return new JsonResult(result);
+            return RedirectToPage("Index");
 
         }
     }

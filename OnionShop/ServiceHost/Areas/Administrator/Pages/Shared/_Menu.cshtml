@@ -1,5 +1,8 @@
 ﻿@using _0_Framework.Infrstructure
 @inject _0_Framework.Application.IAuthHelper authHelper;
+@{
+    var currentUserInfo = authHelper.CurrentAccountInfo();
+}
 <div class="left side-menu">
     <div class="sidebar-inner slimscrollleft">
         <div class="user-details">
@@ -8,7 +11,7 @@
             </div>
             <div class="user-info">
                 <div class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">John Doe <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">@currentUserInfo.FullName <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
                         <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
@@ -17,7 +20,7 @@
                     </ul>
                 </div>
 
-                <p class="text-muted m-0">Administrator</p>
+                <p class="text-muted m-0">@currentUserInfo.Role</p>
             </div>
         </div>
         <!--- Divider -->
@@ -63,6 +66,18 @@
 
 
                     </ul>
+                </li>
+                <li class="has_sub">
+                    <a class="waves-effect"><i class="md md-mail"></i><span> مدیریت کاربران </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a asp-page="/Account/Users/Index">کاربران</a></li>
+                        <li><a asp-page="/Account/Roles/Index">نقش ها</a></li>
+
+
+                    </ul>
+                </li>
+                <li>
+                    <a asp-page="/Account" asp-page-handler="Logout" class="waves-effect"><i class="fa fa-sign-out"></i><span> خروج </span></a>
                 </li>
 
             </ul>

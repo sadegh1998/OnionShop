@@ -1,5 +1,5 @@
 ﻿using _0_Framework.Application;
-using _0_Framework.Domain;
+using _0_Framework.Infrstructure;
 using DiscountManagement.Application.Contract.ColleagueDiscount;
 using DiscountManagement.Domain.ColleagueDiscountAgg;
 using ShopManagement.Infrastracture.EFCore;

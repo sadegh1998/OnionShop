@@ -1,5 +1,5 @@
 ﻿using _0_Framework.Application;
-using _0_Framework.Domain;
+using _0_Framework.Infrstructure;
 using InventoryManagement.ApplicationContract.Inventory;
 using InventoryManagement.Domain.InventoryAgg;
 using ShopManagement.Infrastracture.EFCore;

@@ -1,4 +1,4 @@
-﻿using _0_Framework.Domain;
+﻿using _0_Framework.Infrstructure;
 using ShopManagement.ApplicationContract.ProductCategory;
 using ShopManagement.Domain.ProductCategoryAgg;
 using System;

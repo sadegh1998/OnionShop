@@ -1,5 +1,5 @@
 ﻿using _0_Framework.Application;
-using _0_Framework.Domain;
+using _0_Framework.Infrstructure;
 using CommentMamagement.Infrastructure.EFCore;
 using CommentManagement.ApplicationContract.Comment;
 using CommentManagement.Domain.CommentAgg;

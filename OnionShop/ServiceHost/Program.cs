@@ -41,8 +41,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("AdminArea", builder => builder.RequireRole(Roles.Administrator));
-    options.AddPolicy("Shop", builder => builder.RequireRole(Roles.Administrator));
+    options.AddPolicy("AdminArea", builder => builder.RequireRole(Roles.Administrator,Roles.InventoryUser));
+    options.AddPolicy("Shop", builder => builder.RequireRole(Roles.Administrator, Roles.InventoryUser));
     options.AddPolicy("Inventory", builder => builder.RequireRole(Roles.Administrator));
     options.AddPolicy("Account", builder => builder.RequireRole(Roles.Administrator));
     options.AddPolicy("Comment", builder => builder.RequireRole(Roles.Administrator));
@@ -51,14 +51,14 @@ builder.Services.AddAuthorization(options =>
 
 });
 
-builder.Services.AddRazorPages().AddRazorPagesOptions(options=> {
+builder.Services.AddRazorPages()
+    .AddMvcOptions(options=>options.Filters.Add<SecurityPageFilter>())
+    .AddRazorPagesOptions(options=> {
     options.Conventions.AuthorizeAreaFolder("Administrator", "/", "AdminArea");
     options.Conventions.AuthorizeAreaFolder("Administrator", "/Shop", "Shop");
     options.Conventions.AuthorizeAreaFolder("Administrator", "/Account", "Account");
     options.Conventions.AuthorizeAreaFolder("Administrator", "/Inventory", "Inventory");
     options.Conventions.AuthorizeAreaFolder("Administrator", "/Comments", "Comment");
-
-
 });
 
 var app = builder.Build();
