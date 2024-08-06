@@ -1,0 +1,96 @@
+﻿@page
+@using _0_Framework.Application
+@model ServiceHost.Pages.CartModel
+@{
+}
+<div class="breadcrumb-area section-space--half">
+    <div class="container wide">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-wrapper breadcrumb-bg">
+                    <div class="breadcrumb-content">
+                        <h2 class="breadcrumb-content__title">سبد خرید</h2>
+                        <ul class="breadcrumb-content__page-map">
+                            <li>
+                                <a asp-page="/Index">صفحه اصلی</a>
+                            </li>
+                            <li class="active">سبد خرید شما</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!--=======  page wrapper  =======-->
+                <div class="page-wrapper">
+                    <div class="page-content-wrapper">
+                        <form action="#">
+                            <div class="cart-table table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="pro-thumbnail">تصویر</th>
+                                            <th class="pro-title">محصول</th>
+                                            <th class="pro-price">قیمت واحد</th>
+                                            <th class="pro-quantity">تعداد</th>
+                                            <th class="pro-subtotal">قیمت کل</th>
+                                            <th class="pro-remove">حذف</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var cart in Model.CartItems)
+                                        {
+                                            <tr>
+                                                <td class="pro-thumbnail">
+                                                    <a href="single-product.html">
+                                                        <img src="~/ProductPictures/@cart.Picture" class="img-fluid">
+                                                    </a>
+                                                </td>
+                                                <td class="pro-title">
+                                                    <a href="single-product.html">@cart.Name</a>
+                                                </td>
+                                                <td class="pro-price">
+                                                    <span>@cart.UnitPrice.ToMoney()</span>
+                                                </td>
+                                                <td class="pro-quantity">
+                                                    <div class="quantity-selection">
+                                                        <input type="number" value="1" min="1">
+                                                    </div>
+                                                </td>
+                                                <td class="pro-subtotal">
+                                                    <span>@cart.TotalItemPrice.ToMoney()</span>
+                                                </td>
+                                                <td class="pro-remove">
+                                                    <a asp-page-handler="RemoveItemFromCard" asp-route-id="@cart.Id">
+                                                        <i class="fa fa-trash-o"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-12 d-flex">
+                                <div class="cart-summary">
+                                   
+                                    <div class="cart-summary-button">
+                                        <button class="checkout-btn">تکمیل فرآیند خرید</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
