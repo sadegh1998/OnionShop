@@ -28,8 +28,11 @@
             <div class="col-lg-12">
                 <!--=======  page wrapper  =======-->
                 <div class="page-wrapper">
+                    @foreach (var item in Model.CartItems.Where(x=>!x.IsInStock))
+                    {
+                        <div class="alert alert-warning"><i class="fa fa-warning"></i>کالای @item.Name کمتر از تعداد درخواستی موجود است</div>
+                    }
                     <div class="page-content-wrapper">
-                        <form action="#">
                             <div class="cart-table table-responsive">
                                 <table class="table">
                                     <thead>
@@ -59,11 +62,11 @@
                                                 </td>
                                                 <td class="pro-quantity">
                                                     <div class="quantity-selection">
-                                                        <input type="number" value="1" min="1">
+                                                        <input type="number" value="@cart.Count" min="1" onchange="changeCartItemCount('@cart.Id','totalItemPrice-@cart.Id',this.value)">
                                                     </div>
                                                 </td>
                                                 <td class="pro-subtotal">
-                                                    <span>@cart.TotalItemPrice.ToMoney()</span>
+                                                    <span id="totalItemPrice-@cart.Id">@cart.TotalItemPrice.ToMoney()</span>
                                                 </td>
                                                 <td class="pro-remove">
                                                     <a asp-page-handler="RemoveItemFromCard" asp-route-id="@cart.Id">
@@ -76,14 +79,13 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </form>
 
                         <div class="row">
                             <div class="col-lg-6 col-12 d-flex">
                                 <div class="cart-summary">
                                    
                                     <div class="cart-summary-button">
-                                        <button class="checkout-btn">تکمیل فرآیند خرید</button>
+                                        <a  class="btn btn-danger" asp-page-handler="GoToCheckOut">تکمیل فرآیند خرید</a>
                                     </div>
                                 </div>
                             </div>

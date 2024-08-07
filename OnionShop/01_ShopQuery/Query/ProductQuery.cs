@@ -5,6 +5,7 @@ using CommentMamagement.Infrastructure.EFCore;
 using DiscountManagement.Infrastructure.EFCore;
 using InventoryManagement.InfrastructureEFCore;
 using Microsoft.EntityFrameworkCore;
+using ShopManagement.ApplicationContract.Order;
 using ShopManagement.Infrastracture.EFCore;
 namespace _01_ShopQuery.Query
 {
@@ -201,6 +202,21 @@ namespace _01_ShopQuery.Query
             }
 
             return products;
+        }
+
+        public List<CartItem> CheckInventoryStatus(List<CartItem> cartItems)
+        {
+            var inventory = _inventoryContext.Inventories.ToList();
+            foreach (var item in cartItems.Where(cartitem=> inventory.
+            Any(x=>x.ProductId == cartitem.Id && x.InStock)))
+            {
+                var itemInventory = inventory.FirstOrDefault(x => x.ProductId == item.Id);
+                if(itemInventory!= null)
+                {
+                    item.IsInStock = itemInventory.CalculateCurrentInventoryStock() >= item.Count;
+                }
+            }
+            return cartItems;
         }
     }
 }

@@ -14,5 +14,6 @@ namespace ShopManagement.ApplicationContract.Order
         public double UnitPrice { get; set; }
         public double TotalItemPrice { get; set; }
         public int Count { get; set; }
+        public bool IsInStock { get; set; }
     }
 }
