@@ -11,6 +11,8 @@ namespace _0_Framework.Infrstructure
         public const string Administrator = "1";
         public const string SiteUser = "2";
         public const string InventoryUser = "4";
+        public const string ColleagueUser = "5";
+
 
         public static string GetRoleBy(long id)
         {

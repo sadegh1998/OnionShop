@@ -1,0 +1,14 @@
+﻿using ShopManagement.ApplicationContract.Order;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _01_ShopQuery.Contracts.Order
+{
+    public interface ICartCalculatorService
+    {
+        Cart CamputeCart(List<CartItem> cartItems);
+    }
+}

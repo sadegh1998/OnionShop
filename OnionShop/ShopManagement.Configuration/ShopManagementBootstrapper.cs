@@ -1,4 +1,5 @@
 ﻿using _0_Framework.Infrstructure;
+using _01_ShopQuery.Contracts.Order;
 using _01_ShopQuery.Contracts.Product;
 using _01_ShopQuery.Contracts.ProductCategory;
 using _01_ShopQuery.Contracts.Slide;
@@ -36,7 +37,7 @@ namespace ShopManagement.Configuration
             services.AddTransient<IProductCategoryQuery, ProductCategoryQuery>();
             services.AddTransient<IProductQuery, ProductQuery>();
             services.AddTransient<IPermissionExposer, ShopPermissionExposer>();
-
+            services.AddTransient<ICartCalculatorService, CartCalculatorService>();
 
 
 

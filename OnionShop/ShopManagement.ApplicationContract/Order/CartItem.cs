@@ -13,7 +13,15 @@ namespace ShopManagement.ApplicationContract.Order
         public string Picture { get; set; }
         public double UnitPrice { get; set; }
         public double TotalItemPrice { get; set; }
+        public int DiscountRate { get; set; }
+        public double DiscountItemAmount { get; set; }
+        public double PayItemAmount { get; set; }
         public int Count { get; set; }
         public bool IsInStock { get; set; }
+
+        public void CalculateTotalItemAmount()
+        {
+            TotalItemPrice = UnitPrice * Count;
+        }
     }
 }

@@ -133,15 +133,6 @@ namespace _01_ShopQuery.Query
             return product;
         }
 
-        //private static List<CommentQueryModel> MapComments(List<Comment> comments)
-        //{
-        //    return comments.Where(x => !x.IsCanceled && x.IsConfirmed).Select(x => new CommentQueryModel { 
-        //    Id = x.Id,
-        //    Message = x.Message,
-        //    Name = x.Name,
-        //    ProductId = x.ProductId
-        //    }).OrderByDescending(x=>x.Id).ToList();
-        //}
 
         private static List<ProductPictureQueryModel> MapProductPictures(List<ShopManagement.Domain.ProiductPictureAgg.ProductPicture> productPictures)
         {
