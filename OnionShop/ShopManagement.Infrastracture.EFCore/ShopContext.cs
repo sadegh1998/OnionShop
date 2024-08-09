@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ShopManagement.Domain.OrderAgg;
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
 using ShopManagement.Domain.ProiductPictureAgg;
@@ -12,6 +13,7 @@ namespace ShopManagement.Infrastracture.EFCore
         public DbSet<Product> Products{ get; set; }
         public DbSet<ProductPicture> ProductPictures { get; set; }
         public DbSet<Slide> Slides { get; set; }
+        public DbSet<Order> Orders { get; set; }
         public ShopContext(DbContextOptions<ShopContext> option) : base(option)
         {
 

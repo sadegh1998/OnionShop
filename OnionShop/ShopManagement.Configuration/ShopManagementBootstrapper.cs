@@ -7,11 +7,13 @@ using _01_ShopQuery.Query;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ShopManagement.Application;
+using ShopManagement.ApplicationContract.Order;
 using ShopManagement.ApplicationContract.Product;
 using ShopManagement.ApplicationContract.ProductCategory;
 using ShopManagement.ApplicationContract.ProductPicture;
 using ShopManagement.ApplicationContract.Slide;
 using ShopManagement.Configuration.Permissions;
+using ShopManagement.Domain.OrderAgg;
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductCategoryAgg;
 using ShopManagement.Domain.ProiductPictureAgg;
@@ -38,7 +40,9 @@ namespace ShopManagement.Configuration
             services.AddTransient<IProductQuery, ProductQuery>();
             services.AddTransient<IPermissionExposer, ShopPermissionExposer>();
             services.AddTransient<ICartCalculatorService, CartCalculatorService>();
-
+            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IOrderApplication, OrderApplication>();
+            services.AddSingleton<ICartService, CartService>();
 
 
             services.AddDbContext<ShopContext>(x => x.UseSqlServer(connectionString));
