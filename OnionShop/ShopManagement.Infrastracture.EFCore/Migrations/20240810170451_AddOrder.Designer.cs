@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopManagement.Infrastracture.EFCore;
 
@@ -11,9 +12,11 @@ using ShopManagement.Infrastracture.EFCore;
 namespace ShopManagement.Infrastracture.EFCore.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    partial class ShopContextModelSnapshot : ModelSnapshot
+    [Migration("20240810170451_AddOrder")]
+    partial class AddOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,8 +46,8 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("IssueTrackingNo")
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("PayAmount")
                         .HasColumnType("float");
@@ -60,7 +63,40 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("ShopManagement.Domain.OrderAgg.OrderItem", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DiscountRate")
+                        .HasColumnType("int");
+
+                    b.Property<long>("OrderId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ProductId")
+                        .HasColumnType("bigint");
+
+                    b.Property<double>("UnitPrice")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("OrderItem");
                 });
 
             modelBuilder.Entity("ShopManagement.Domain.ProductAgg.Product", b =>
@@ -76,8 +112,7 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
 
                     b.Property<string>("Code")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -88,49 +123,41 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
 
                     b.Property<string>("Keywords")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MetaDescription")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Picture")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureAlt")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureTitle")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortDescription")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products", (string)null);
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("ShopManagement.Domain.ProductCategoryAgg.ProductCategory", b =>
@@ -146,47 +173,39 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Keywords")
                         .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MetaDescription")
                         .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Picture")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureAlt")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureTitle")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Slug")
                         .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProductCategories", (string)null);
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("ShopManagement.Domain.ProiductPictureAgg.ProductPicture", b =>
@@ -205,18 +224,15 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
 
                     b.Property<string>("Picture")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureAlt")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureTitle")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("ProductId")
                         .HasColumnType("bigint");
@@ -225,7 +241,7 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductPictures", (string)null);
+                    b.ToTable("ProductPictures");
                 });
 
             modelBuilder.Entity("ShopManagement.Domain.SlideAgg.Slide", b =>
@@ -238,16 +254,14 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
 
                     b.Property<string>("BtnText")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Heading")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsRemove")
                         .HasColumnType("bit");
@@ -258,75 +272,38 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
 
                     b.Property<string>("Picture")
                         .IsRequired()
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureAlt")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PictureTitle")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Text")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slides", (string)null);
+                    b.ToTable("Slides");
                 });
 
-            modelBuilder.Entity("ShopManagement.Domain.OrderAgg.Order", b =>
+            modelBuilder.Entity("ShopManagement.Domain.OrderAgg.OrderItem", b =>
                 {
-                    b.OwnsMany("ShopManagement.Domain.OrderAgg.OrderItem", "Items", b1 =>
-                        {
-                            b1.Property<long>("Id")
-                                .ValueGeneratedOnAdd()
-                                .HasColumnType("bigint");
+                    b.HasOne("ShopManagement.Domain.OrderAgg.Order", "Order")
+                        .WithMany("Items")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                            SqlServerPropertyBuilderExtensions.UseIdentityColumn(b1.Property<long>("Id"));
-
-                            b1.Property<int>("Count")
-                                .HasColumnType("int");
-
-                            b1.Property<DateTime>("CreationDate")
-                                .HasColumnType("datetime2");
-
-                            b1.Property<int>("DiscountRate")
-                                .HasColumnType("int");
-
-                            b1.Property<long>("OrderId")
-                                .HasColumnType("bigint");
-
-                            b1.Property<long>("ProductId")
-                                .HasColumnType("bigint");
-
-                            b1.Property<double>("UnitPrice")
-                                .HasColumnType("float");
-
-                            b1.HasKey("Id");
-
-                            b1.HasIndex("OrderId");
-
-                            b1.ToTable("OrderItems", (string)null);
-
-                            b1.WithOwner("Order")
-                                .HasForeignKey("OrderId");
-
-                            b1.Navigation("Order");
-                        });
-
-                    b.Navigation("Items");
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("ShopManagement.Domain.ProductAgg.Product", b =>
@@ -349,6 +326,11 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
                         .IsRequired();
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ShopManagement.Domain.OrderAgg.Order", b =>
+                {
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("ShopManagement.Domain.ProductAgg.Product", b =>

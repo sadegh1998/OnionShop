@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopManagement.Infrastracture.EFCore;
 
@@ -11,9 +12,11 @@ using ShopManagement.Infrastracture.EFCore;
 namespace ShopManagement.Infrastracture.EFCore.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    partial class ShopContextModelSnapshot : ModelSnapshot
+    [Migration("20240810170754_AddOrderAllowNull")]
+    partial class AddOrderAllowNull
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,6 +46,7 @@ namespace ShopManagement.Infrastracture.EFCore.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("IssueTrackingNo")
+                        .IsRequired()
                         .HasMaxLength(8)
                         .HasColumnType("nvarchar(8)");
 

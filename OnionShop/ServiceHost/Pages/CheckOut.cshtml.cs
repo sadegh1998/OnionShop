@@ -1,9 +1,13 @@
+﻿using _0_Framework.Application;
+using _0_Framework.Application.ZarinPal;
 using _01_ShopQuery.Contracts.Order;
 using _01_ShopQuery.Contracts.Product;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Nancy.Json;
+using ShopManagement.Application;
 using ShopManagement.ApplicationContract.Order;
+using ShopManagement.Domain.OrderAgg;
 
 namespace ServiceHost.Pages
 {
@@ -14,12 +18,19 @@ namespace ServiceHost.Pages
         private readonly ICartCalculatorService _cartCalculatorService;
         private readonly ICartService _cartService;
         private readonly IProductQuery _productQuery;
+        private readonly IOrderApplication _orderApplication;
+        private readonly IAuthHelper _authHelper;
+        private readonly IZarinPalFactory _zarinPalFactory;
 
-        public CheckOutModel(ICartCalculatorService cartCalculatorService, ICartService cartService, IProductQuery productQuery)
+        public CheckOutModel(ICartCalculatorService cartCalculatorService, ICartService cartService, IProductQuery productQuery, IOrderApplication orderApplication, IAuthHelper authHelper, IZarinPalFactory zarinPalFactory)
         {
             _cartCalculatorService = cartCalculatorService;
             _cartService = cartService;
             _productQuery = productQuery;
+            _orderApplication = orderApplication;
+            _authHelper = authHelper;
+            _zarinPalFactory = zarinPalFactory;
+            Cart = new Cart();
         }
 
         public void OnGet()
@@ -44,7 +55,30 @@ namespace ServiceHost.Pages
                 return RedirectToPage("/Cart");
             }
 
-            return RedirectToPage("/CheckOut");
+            var orderId = _orderApplication.PlaceOrder(cart);
+            var paymentResponse = _zarinPalFactory.CreatePaymentRequest(cart.PayAmount.ToString(),"","","خرید از فروشگاه",orderId);
+
+
+
+            return Redirect($"https://{_zarinPalFactory.Prefix}.zarinpal.com/pg/StartPay/{paymentResponse.Authority}");
+        }
+        public IActionResult OnGetCallBack([FromQuery] string authority, [FromQuery] string status, [FromQuery] long oId)
+        {
+            var orderAmount = _orderApplication.GetAmountBy(oId);
+            var verificationResponse = _zarinPalFactory.CreateVerificationRequest(authority, orderAmount.ToString());
+            var paymentResult = new PaymentResult();
+
+            if (status == "OK" && verificationResponse.RefID >= 100)
+            {
+               var issueTrackingNo =  _orderApplication.PaymentSucceeded(oId, verificationResponse.RefID);
+                Response.Cookies.Delete(CookieName);
+                return RedirectToPage("/PaymentResult", paymentResult.Succeeded("تراکنش با موفقیت انجام شد", issueTrackingNo));
+            }
+            else
+            {
+                paymentResult = paymentResult.Failed("پرداخت با موفقیت انجام نشد . در صورت کسر وجه از حساب ، تا 72 ساعت آینده به حساب شما بازخواهد گشت");
+                return RedirectToPage("/PaymentResult",paymentResult);
+            }
         }
     }
 }

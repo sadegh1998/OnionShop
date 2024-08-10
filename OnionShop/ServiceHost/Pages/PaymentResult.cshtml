@@ -1,0 +1,52 @@
+﻿@page
+@model ServiceHost.Pages.PaymentResultModel
+@{
+}
+
+
+<div class="breadcrumb-area section-space--half">
+    <div class="container wide">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-wrapper breadcrumb-bg">
+                    <div class="breadcrumb-content">
+                        <h2 class="breadcrumb-content__title">نتیجه تراکنش</h2>
+                        <ul class="breadcrumb-content__page-map">
+                            <li>
+                                <a asp-page="/Index">صفحه اصلی</a>
+                            </li>
+                            <li class="active">نتیجه تراکنش</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                @if (Model.PaymentResult.IsSuccessful)
+                {
+                    <div class="alert alert-success">
+                        <p>
+                            @Model.PaymentResult.Message
+                        </p>
+                        <p>
+                            @Model.PaymentResult.IssueTrackingNo
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-danger">
+                        <p>
+                            @Model.PaymentResult.Message
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,5 +17,15 @@ namespace ShopManagement.Infrastracture.EFCore.Repository
         {
             _shopContext = shopContext;
         }
+
+        public double GetAmountBy(long id)
+        {
+            var payAmount = _shopContext.Orders.Select(x => new { x.PayAmount, x.Id }).FirstOrDefault(x => x.Id == id);
+            if(payAmount != null)
+            {
+                return payAmount.PayAmount;
+            }
+            return 0;
+        }
     }
 }
