@@ -33,9 +33,12 @@
                         <p>
                             @Model.PaymentResult.Message
                         </p>
-                        <p>
-                            @Model.PaymentResult.IssueTrackingNo
-                        </p>
+                        @if (!string.IsNullOrWhiteSpace(Model.PaymentResult.IssueTrackingNo))
+                        {
+                            <p>
+                                @Model.PaymentResult.IssueTrackingNo
+                            </p>
+                        }
                     </div>
                 }
                 else

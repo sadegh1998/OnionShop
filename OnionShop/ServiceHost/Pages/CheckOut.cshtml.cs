@@ -46,9 +46,10 @@ namespace ServiceHost.Pages
             Cart = _cartCalculatorService.CamputeCart(cartItems);
             _cartService.Set(Cart);
         }
-        public IActionResult OnGetPay()
+        public IActionResult OnPostPay(int paymentMethod)
         {
             var cart = _cartService.Get();
+            cart.SetPaymentMethod(paymentMethod);   
             var result = _productQuery.CheckInventoryStatus(cart.Items);
             if (result.Any(x => !x.IsInStock))
             {
@@ -56,11 +57,16 @@ namespace ServiceHost.Pages
             }
 
             var orderId = _orderApplication.PlaceOrder(cart);
+            if(paymentMethod == 1)
+            {
             var paymentResponse = _zarinPalFactory.CreatePaymentRequest(cart.PayAmount.ToString(),"","","خرید از فروشگاه",orderId);
-
-
-
             return Redirect($"https://{_zarinPalFactory.Prefix}.zarinpal.com/pg/StartPay/{paymentResponse.Authority}");
+            }
+            else
+            {
+                var paymentResult = new PaymentResult();
+                return RedirectToPage("/PaymentResult", paymentResult.Succeeded("سفارش با موفقیت ثبت گردید و پس از تماس کارشناسان و واریز وجه آماده ارسال می باشد.", ""));
+            }
         }
         public IActionResult OnGetCallBack([FromQuery] string authority, [FromQuery] string status, [FromQuery] long oId)
         {

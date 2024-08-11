@@ -1,4 +1,5 @@
 ﻿@page
+@using ShopManagement.ApplicationContract
 @using _0_Framework.Application
 @model ServiceHost.Pages.CheckOutModel
 @{
@@ -30,7 +31,7 @@
                 <!--=======  page wrapper  =======-->
                 <div class="page-wrapper">
                     <div class="page-content-wrapper">
-                        <form action="#">
+                        <form method="post">
                             <div class="cart-table table-responsive">
                                 <table class="table">
                                     <thead>
@@ -82,9 +83,22 @@
                                     </tbody>
                                 </table>
                             </div>
-                        </form>
+                        
 
                         <div class="row">
+                            <div class="col-lg-6 col-12 d-flex">
+                                <div class="checkout-payment-method">
+                                    <h4>نحوه پرداخت</h4>
+                                    @foreach (var method in PaymentMethod.GetList())
+                                    {
+                                        <div class="single-method">
+                                            <input type="radio" id="payment_@method.Id" name="paymentMethod" value="@method.Id" @(PaymentMethod.GetList().First().Id == method.Id ? "checked" : "")>
+                                            <label for="payment_@method.Id">@method.Name</label>
+                                            <p data-method="@method.Id" style="display:@(PaymentMethod.GetList().First().Id == method.Id ? "block" : "none")">@method.Description</p>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
                             <div class="col-lg-6 col-12 d-flex">
                                 <div class="cart-summary">
                                     <div class="cart-summary-wrap">
@@ -94,11 +108,12 @@
                                         <h2>مبلغ قابل پرداخت <span>@Model.Cart.PayAmount.ToMoney() </span></h2>
                                     </div>
                                     <div class="cart-summary-button">
-                                        <a class="btn btn-success" asp-page-handler="Pay">پرداخت</a>
+                                        <button class="btn btn-success" asp-page-handler="Pay">پرداخت</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

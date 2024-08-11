@@ -5,6 +5,7 @@
         public double Amount { get; set; }
         public double DiscountAmount { get; set; }
         public double PayAmount { get; set; }
+        public int PaymentMethod { get; set; }
         public List<CartItem> Items { get; set; }
 
         public Cart()
@@ -18,6 +19,10 @@
             DiscountAmount += cartItems.DiscountItemAmount;
             PayAmount += cartItems.PayItemAmount;
 
+        }
+        public void SetPaymentMethod(int paymentMethod)
+        {
+            PaymentMethod = paymentMethod;
         }
     }
     
