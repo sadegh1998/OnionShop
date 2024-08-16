@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ShopManagement.ApplicationContract.Order;
 using ShopManagement.Domain.OrderAgg;
+using ShopManagement.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,12 +17,14 @@ namespace ShopManagement.Application
         private readonly IAuthHelper _authHelper;
         private readonly IConfiguration _configuration;
         private readonly IOrderRepository _orderRepository;
+        private readonly IShopInventoryAcl _shopInventoryAcl;
 
-        public OrderApplication(IOrderRepository orderRepository, IAuthHelper authHelper, IConfiguration configuration)
+        public OrderApplication(IOrderRepository orderRepository, IAuthHelper authHelper, IConfiguration configuration, IShopInventoryAcl shopInventoryAcl)
         {
             _orderRepository = orderRepository;
             _authHelper = authHelper;
             _configuration = configuration;
+            _shopInventoryAcl = shopInventoryAcl;
         }
 
 
@@ -47,13 +50,35 @@ namespace ShopManagement.Application
             var symbol = _configuration["Symbol"];
             var issueTrackingNo = CodeGenerator.Generate(symbol);
             order.SetIssueTrackingNo(issueTrackingNo);
-            _orderRepository.SaveChanges();
-            return issueTrackingNo;
+            if (_shopInventoryAcl.ReduceFromInventory(order.Items))
+            {
+                _orderRepository.SaveChanges();
+                return issueTrackingNo;
+            }
+            return null;
+            
         }
 
         public double GetAmountBy(long id)
         {
             return _orderRepository.GetAmountBy(id);
+        }
+
+        public List<OrderviewModel> Search(OrderSearchModel searchModel)
+        {
+            return _orderRepository.Search(searchModel);
+        }
+
+        public void Cancel(long id)
+        {
+            var order = _orderRepository.Get(id);
+            order.Cancel();
+            _orderRepository.SaveChanges();
+        }
+
+        public List<OrderItemViewModel> GetItems(long orderId)
+        {
+            return _orderRepository.GetItems(orderId);
         }
     }
 }

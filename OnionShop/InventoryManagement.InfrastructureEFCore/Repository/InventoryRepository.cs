@@ -1,5 +1,6 @@
 ﻿using _0_Framework.Application;
 using _0_Framework.Infrstructure;
+using AccountManagement.Infrastructure.EFCore;
 using InventoryManagement.ApplicationContract.Inventory;
 using InventoryManagement.Domain.InventoryAgg;
 using ShopManagement.Infrastracture.EFCore;
@@ -15,11 +16,13 @@ namespace InventoryManagement.InfrastructureEFCore.Repository
     {
         private readonly ShopContext _shopContext;
         private readonly InventoryContext _inventoryContext;
+        private readonly AccountContext _accountContext;
 
-        public InventoryRepository(InventoryContext inventoryContext, ShopContext shopContext) : base(inventoryContext)
+        public InventoryRepository(InventoryContext inventoryContext, ShopContext shopContext, AccountContext accountContext) : base(inventoryContext)
         {
             _inventoryContext = inventoryContext;
             _shopContext = shopContext;
+            _accountContext = accountContext;
         }
 
         public Inventory GetBy(long producId)
@@ -38,18 +41,25 @@ namespace InventoryManagement.InfrastructureEFCore.Repository
 
         public List<InventoryOperationsViewModel> GetOperationLog(long inventoryId)
         {
+            var accounts = _accountContext.Accounts.Select(x => new { x.Id, x.FullName }).ToList();
             var inventory = _inventoryContext.Inventories.FirstOrDefault(x=>x.Id == inventoryId);
-            return inventory.Operations.Select(x => new InventoryOperationsViewModel
+            var operationLogs =  inventory.Operations.Select(x => new InventoryOperationsViewModel
             {
                 Id = x.Id ,
                 Count = x.Count,
                 CurrentCount = x.CurrentCount,
                 Description = x.Description,
-                Operator = "مدیر سیستم",
                 OperationId = x.OperationId,
                 Operation = x.Operation,
                 OperationDate = x.OperationDate.ToFarsi(),
             }).ToList();
+
+            foreach (var operationlog in operationLogs)
+            {
+                operationlog.Operator = accounts.FirstOrDefault(x => x.Id == operationlog.OperationId)?.FullName;
+            }
+
+            return operationLogs;
         }
 
         public List<InventoryViewModel> Search(InventorySearchModel searchModel)

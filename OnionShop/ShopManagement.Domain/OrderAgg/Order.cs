@@ -40,7 +40,7 @@ namespace ShopManagement.Domain.OrderAgg
         public void PaymentSucceded(long refId)
         {
             IsPaid = true;
-            if(RefId == 0)
+            if(refId != 0)
             {
                 RefId = refId;
             }
