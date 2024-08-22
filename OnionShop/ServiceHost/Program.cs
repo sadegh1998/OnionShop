@@ -6,9 +6,11 @@ using BlogManagement.Configuration;
 using CommentManagement.Configuration;
 using DiscountManagement.configuration;
 using InventoryManagement.Configuration;
+using InventoryManagement.Presentation.Api;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using ServiceHost;
 using ShopManagement.Configuration;
+using ShopManagement.Presentation.Api;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 
@@ -52,16 +54,21 @@ builder.Services.AddAuthorization(options =>
 
 });
 
-builder.Services.AddRazorPages()
-    .AddMvcOptions(options=>options.Filters.Add<SecurityPageFilter>())
-    .AddRazorPagesOptions(options=> {
-    options.Conventions.AuthorizeAreaFolder("Administrator", "/", "AdminArea");
-    options.Conventions.AuthorizeAreaFolder("Administrator", "/Shop", "Shop");
-    options.Conventions.AuthorizeAreaFolder("Administrator", "/Account", "Account");
-    options.Conventions.AuthorizeAreaFolder("Administrator", "/Inventory", "Inventory");
-    options.Conventions.AuthorizeAreaFolder("Administrator", "/Comments", "Comment");
-});
-
+builder.Services
+    .AddRazorPages()
+    .AddMvcOptions(options => options.Filters.Add<SecurityPageFilter>())
+    .AddRazorPagesOptions(options =>
+    {
+        options.Conventions.AuthorizeAreaFolder("Administrator", "/", "AdminArea");
+        options.Conventions.AuthorizeAreaFolder("Administrator", "/Shop", "Shop");
+        options.Conventions.AuthorizeAreaFolder("Administrator", "/Account", "Account");
+        options.Conventions.AuthorizeAreaFolder("Administrator", "/Inventory", "Inventory");
+        options.Conventions.AuthorizeAreaFolder("Administrator", "/Comments", "Comment");
+    })
+   .AddApplicationPart(typeof(ProductController).Assembly)
+   .AddApplicationPart(typeof(InventoryController).Assembly)
+   .AddNewtonsoftJson();
+   
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

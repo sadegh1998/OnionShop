@@ -15,11 +15,14 @@
     <ProjectReference Include="..\CommentManagement.Application\CommentManagement.Application.csproj" />
     <ProjectReference Include="..\DiscountManagement.configuration\DiscountManagement.configuration.csproj" />
     <ProjectReference Include="..\InventoryManagement.Configuration\InventoryManagement.Configuration.csproj" />
+    <ProjectReference Include="..\InventoryManagement.Presentation.Api\InventoryManagement.Presentation.Api.csproj" />
     <ProjectReference Include="..\ShopManagement.Configuration\ShopManagement.Configuration.csproj" />
+    <ProjectReference Include="..\ShopManagement.Presentation.Api\ShopManagement.Presentation.Api.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

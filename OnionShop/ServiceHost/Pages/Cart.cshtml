@@ -28,10 +28,15 @@
             <div class="col-lg-12">
                 <!--=======  page wrapper  =======-->
                 <div class="page-wrapper">
+                    <div id="productStockWarnings">
                     @foreach (var item in Model.CartItems.Where(x=>!x.IsInStock))
                     {
-                        <div class="alert alert-warning"><i class="fa fa-warning"></i>کالای @item.Name کمتر از تعداد درخواستی موجود است</div>
+                        <div class="alert alert-warning" id="@item.Id">
+                            <i class="fa fa-warning"></i>کالای 
+                            <strong>@item.Name</strong> کمتر از تعداد درخواستی موجود است
+                        </div>
                     }
+                    </div>
                     <div class="page-content-wrapper">
                             <div class="cart-table table-responsive">
                                 <table class="table">

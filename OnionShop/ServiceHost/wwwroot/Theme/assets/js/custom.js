@@ -15,7 +15,7 @@ function addToCart(id, name, price, picture) {
         const product = {
             id,
             name,
-            unitprice : price,
+            unitprice: price,
             picture,
             count
         }
@@ -76,4 +76,32 @@ function changeCartItemCount(id, totalid, count) {
     $(`#${totalid}`).text(newPrice);
     $.cookie(cookieName, JSON.stringify(products), { expires: 2, path: "/" });
     updateCart();
+
+    var settings = {
+        "url": "http://localhost:5024/api/Inventory",
+        "method": "POST",
+        "timeout": 0,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "data": JSON.stringify({ "Count": count, "ProductId": id }),
+    };
+
+    $.ajax(settings).done(function (data) {
+        if (data.inStock == false) {
+
+            const warnignsDiv = $('#productStockWarnings');
+            if ($(`#${id}`).length == 0) {
+                warnignsDiv.append(`<div class="alert alert-warning" id="${id}">
+                            <i class="fa fa-warning"></i>کالای
+                            <strong>${data.productName}</strong> کمتر از تعداد درخواستی موجود است
+                        </div>`);
+            }
+        } else {
+                if ($(`#${id}`).length > 0) {
+                    $(`#${id}`).remove();
+                }
+            }
+      
+    });
 }
