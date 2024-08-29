@@ -82,6 +82,12 @@ namespace AccountManagement.Application
             return operation.Success();
         }
 
+        public AccountViewModel GetAccountBy(long id)
+        {
+            var account = _accountRepository.Get(id);
+            return new AccountViewModel { FullName = account.FullName , Mobile = account.Mobile};
+        }
+
         public List<AccountViewModel> GetAccounts()
         {
             return _accountRepository.GetAccounts();

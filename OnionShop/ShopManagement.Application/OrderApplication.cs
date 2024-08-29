@@ -1,4 +1,5 @@
 ﻿using _0_Framework.Application;
+using _0_Framework.Application.Sms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using ShopManagement.ApplicationContract.Order;
@@ -18,13 +19,17 @@ namespace ShopManagement.Application
         private readonly IConfiguration _configuration;
         private readonly IOrderRepository _orderRepository;
         private readonly IShopInventoryAcl _shopInventoryAcl;
+        private readonly ISmsService _smsService;
+        private readonly IShopAccountAcl _shopAccountAcl;
 
-        public OrderApplication(IOrderRepository orderRepository, IAuthHelper authHelper, IConfiguration configuration, IShopInventoryAcl shopInventoryAcl)
+        public OrderApplication(IOrderRepository orderRepository, IAuthHelper authHelper, IConfiguration configuration, IShopInventoryAcl shopInventoryAcl, ISmsService smsService, IShopAccountAcl shopAccountAcl)
         {
             _orderRepository = orderRepository;
             _authHelper = authHelper;
             _configuration = configuration;
             _shopInventoryAcl = shopInventoryAcl;
+            _smsService = smsService;
+            _shopAccountAcl = shopAccountAcl;
         }
 
 
@@ -53,6 +58,8 @@ namespace ShopManagement.Application
             if (_shopInventoryAcl.ReduceFromInventory(order.Items))
             {
                 _orderRepository.SaveChanges();
+                var account = _shopAccountAcl.GetAccountBy(order.AccountId);
+                _smsService.Send(account.mobile, $"{account.name} عزیز سفارش شما با شماره پیگیری {issueTrackingNo} با موفقیت پرداخت شد و در زمان تعیین شده ارسال می گردد");
                 return issueTrackingNo;
             }
             return null;
