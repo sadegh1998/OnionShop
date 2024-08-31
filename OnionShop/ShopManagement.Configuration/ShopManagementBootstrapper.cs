@@ -21,6 +21,7 @@ using ShopManagement.Domain.Services;
 using ShopManagement.Domain.SlideAgg;
 using ShopManagement.Infrastracture.EFCore;
 using ShopManagement.Infrastracture.EFCore.Repository;
+using ShopManagement.Infrastructure.AccountAcl;
 using ShopManagement.Infrastructure.InventoryAcl;
 
 namespace ShopManagement.Configuration
@@ -46,7 +47,7 @@ namespace ShopManagement.Configuration
             services.AddTransient<IOrderApplication, OrderApplication>();
             services.AddSingleton<ICartService, CartService>();
             services.AddTransient<IShopInventoryAcl, ShopInventoryAcl>();
-
+            services.AddTransient<IShopAccountAcl, ShopAccountAcl>();
 
             services.AddDbContext<ShopContext>(x => x.UseSqlServer(connectionString));
 
