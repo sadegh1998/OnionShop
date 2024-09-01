@@ -15,7 +15,7 @@ namespace ServiceHost.Pages
 
         public void OnGet()
         {
-            _emailService.SendEmail("welcome", "Welcome to shop site", "contact@shop.com");
+            //_emailService.SendEmail("welcome", "Welcome to shop site", "contact@shop.com");
         }
     }
 }
