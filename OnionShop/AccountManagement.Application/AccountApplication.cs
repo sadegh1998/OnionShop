@@ -56,7 +56,7 @@ namespace AccountManagement.Application
             var password = _passwordHasher.Hash(command.Password);
             var path = $"ProfilePictures";
             var profilePicture = _fileUploader.Upload(command.ProfilePicture, path);
-            var account = new Account(command.FullName,command.Username,password,command.Mobile,1,profilePicture);
+            var account = new Account(command.FullName,command.Username,password,command.Mobile,command.RoleId,profilePicture);
             _accountRepository.Create(account);
             _accountRepository.SaveChanges();
             return operation.Success();

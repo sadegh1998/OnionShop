@@ -8,9 +8,9 @@
             <div class="col-lg-12">
                 <div class="breadcrumb-wrapper breadcrumb-bg">
                     <div class="breadcrumb-content">
-                        <h2 class="breadcrumb-content__title">ورود - ثبت نام</h2>
+                        <h2 class="breadcrumb-content__title">ورود و ثبت نام</h2>
                         <ul class="breadcrumb-content__page-map">
-                            <li><a href="./Index">صفحه اصلی</a></li>
+                            <li><a asp-page="/Index">صفحه اصلی</a></li>
                             <li class="active">ورود - ثبت نام</li>
                         </ul>
                     </div>
@@ -28,11 +28,11 @@
                     <div class="page-content-wrapper">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6">
-                                @if(Model.Message != null)
+                                @if (Model.LoginMessage != null)
                                 {
-                                    <span class="alert alert-danger">@Model.Message</span>
+                                    <div class="alert alert-danger">@Model.LoginMessage</div>
                                 }
-                                <form method="post"  asp-page-handler="Login">
+                                <form method="post" asp-page-handler="Login">
                                     <div class="login-form">
                                         <h4 class="login-title">ورود</h4>
                                         <div class="row">
@@ -41,20 +41,19 @@
                                                 <input type="text" name="username" placeholder="نام کاربری">
                                             </div>
                                             <div class="col-12">
-                                                <label>کلمه عبور</label>
-                                                <input type="password" name="password" placeholder="کلمه عبور">
+                                                <label>کلمه رمز</label>
+                                                <input type="password" name="password" placeholder="کلمه رمز">
                                             </div>
-                                           @*  <div class="col-sm-6">
 
-                                                <div class="check-box d-inline-block ml-0 ml-md-2">
-                                                    <input type="checkbox" id="remember_me">
-                                                    <label for="remember_me">Remember me</label>
-                                                </div>
-
-                                            </div> *@
+                                            @*<div class="col-sm-6">
+                                            <div class="check-box d-inline-block ml-0 ml-md-2">
+                                            <input type="checkbox" id="remember_me">
+                                            <label for="remember_me">Remember me</label>
+                                            </div>
+                                            </div>*@
 
                                             <div class="col-sm-6 text-left text-sm-right">
-                                                <a href="#" class="forget-pass-link"> رمز عبور خود را فراموش کرده اید؟</a>
+                                                <a href="#" class="forget-pass-link">رمز را فراموش کرده اید؟</a>
                                             </div>
 
                                             <div class="col-md-12">
@@ -67,15 +66,17 @@
                                 </form>
                             </div>
                             <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                                @if (Model.RegisterMessage != null)
+                                {
+                                    <div class="alert alert-danger">@Model.RegisterMessage</div>
+                                }
                                 <form method="post" asp-page-handler="Register">
-
                                     <div class="login-form">
                                         <h4 class="login-title">ثبت نام</h4>
-
                                         <div class="row">
                                             <div class="col-md-6 col-12 mb-20">
-                                                <label>نام و نام خانوادگی</label>
-                                                <input type="text"  name="fullname" placeholder="نام و نام خانوادگی">
+                                                <label>نام کامل</label>
+                                                <input type="text" name="fullname" placeholder="نام کامل">
                                             </div>
                                             <div class="col-md-6 col-12 mb-20">
                                                 <label>نام کاربری</label>
@@ -86,19 +87,18 @@
                                                 <input type="number" name="mobile" placeholder="موبایل">
                                             </div>
                                             <div class="col-md-6 mb-20">
-                                                <label>کلمه عبور</label>
-                                                <input type="password" name="password" placeholder="کلمه عبور">
+                                                <label>کلمه رمز</label>
+                                                <input type="password" name="password" placeholder="کلمه رمز">
                                             </div>
                                             <div class="col-md-6 mb-20">
-                                                <label>تکرار کلمه عبور</label>
-                                                <input type="password" name="repassword" placeholder="تکرار کلمه عبور">
+                                                <label>تایید کلمه رمز</label>
+                                                <input type="password" name="rePassword" placeholder="تایید کلمه رمز">
                                             </div>
                                             <div class="col-12">
                                                 <button class="register-button mt-0">ثبت نام</button>
                                             </div>
                                         </div>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
@@ -108,3 +108,4 @@
         </div>
     </div>
 </div>
+

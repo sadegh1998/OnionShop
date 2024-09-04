@@ -10,6 +10,8 @@ using DiscountManagement.configuration;
 using InventoryManagement.Configuration;
 using InventoryManagement.Presentation.Api;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using ServiceHost;
 using ShopManagement.Configuration;
 using ShopManagement.Presentation.Api;
@@ -21,6 +23,15 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var ConnectionString = builder.Configuration.GetConnectionString("OnionShopDb");
 builder.Services.AddRazorPages();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set your desired timeout
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
+//builder.Services.AddSingleton<ITempDataProvider, CookieTempDataProvider>(); 
+
 builder.Services.AddHttpContextAccessor();
 ShopManagementBootstrapper.Configuration(builder.Services, ConnectionString);
 DiscountCustomerBootstrapper.Configure(builder.Services, ConnectionString);
@@ -35,6 +46,9 @@ builder.Services.AddTransient<IAuthHelper, AuthHelper>();
 builder.Services.AddTransient<IZarinPalFactory, ZarinPalFactory>();
 builder.Services.AddTransient<ISmsService,SmsService>();
 builder.Services.AddTransient<IEmailService, EmailService>();
+builder.Services.Configure<CookieTempDataProviderOptions>(options => {
+    options.Cookie.IsEssential = true;
+});
 builder.Services.Configure<CookiePolicyOptions>(options => { options.CheckConsentNeeded = context => true; options.MinimumSameSitePolicy = SameSiteMode.Strict;
 });
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
@@ -86,7 +100,9 @@ app.UseAuthentication();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseCookiePolicy();
+
 app.UseRouting();
+//app.UseSession();
 
 app.UseAuthorization();
 
