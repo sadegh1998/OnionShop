@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,6 +41,32 @@ namespace AccountManagement.Infrastructure.EFCore.Repository
             Username = x.Username
             })
                 .FirstOrDefault(x => x.Id == id);
+        }
+
+        public AccountViewModel GetUserEmailBy(string email)
+        {
+            var result = _context.Accounts.Where(x => x.Email == email).FirstOrDefault();
+            if (result == null)
+            {
+                return new AccountViewModel();
+            }
+            else
+            {
+                return new AccountViewModel { Email = result.Email , Id = result.Id,Token = result.Token};
+            }
+        }
+
+        public AccountViewModel GetUserMobileBy(string mobile)
+        {
+            var result = _context.Accounts.Where(x => x.Mobile == mobile).FirstOrDefault();
+            if(result == null)
+            {
+                return new AccountViewModel();
+            }
+            else
+            {
+                return new AccountViewModel { Mobile = result.Mobile, Id = result.Id , Token = result.Token };
+            }
         }
 
         public List<AccountViewModel> Search(AccountSearchModel search)

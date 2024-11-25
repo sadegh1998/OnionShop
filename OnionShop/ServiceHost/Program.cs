@@ -41,7 +41,7 @@ BlogManagementBootstrapper.Configure(builder.Services, ConnectionString);
 CommentManagementBootstrapper.Configuration(builder.Services, ConnectionString);
 AccountBootstrapper.Configure(builder.Services , ConnectionString);
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
-
+builder.Services.AddSingleton<HmacTokenHelper>();
 builder.Services.AddTransient<IFileUploader, FileUploader>();
 builder.Services.AddTransient<IAuthHelper, AuthHelper>();
 builder.Services.AddTransient<IZarinPalFactory, ZarinPalFactory>();

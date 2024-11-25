@@ -19,5 +19,8 @@ namespace AccountManagement.Application.Contract.Account
         List<AccountViewModel> Search(AccountSearchModel search);
         OperationResult ChangePassword(ChanagePassword command);
         AccountViewModel GetAccountBy(long id);
+        AccountViewModel GetUserEmailBy(string email);
+        AccountViewModel GetUserMobileBy(string mobile);
+        OperationResult SetToken(string token,long id);
     }
 }

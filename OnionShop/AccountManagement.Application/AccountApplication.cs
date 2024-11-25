@@ -5,6 +5,7 @@ using AccountManagement.Domain.RoleAgg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -82,10 +83,12 @@ namespace AccountManagement.Application
             return operation.Success();
         }
 
+       
+
         public AccountViewModel GetAccountBy(long id)
         {
             var account = _accountRepository.Get(id);
-            return new AccountViewModel { FullName = account.FullName , Mobile = account.Mobile};
+            return new AccountViewModel { FullName = account.FullName , Mobile = account.Mobile,LastSendSms = account.LastSendSms};
         }
 
         public List<AccountViewModel> GetAccounts()
@@ -96,6 +99,16 @@ namespace AccountManagement.Application
         public EditAccount GetDetails(long id)
         {
             return _accountRepository.GetDetails(id);
+        }
+
+        public AccountViewModel GetUserEmailBy(string email)
+        {
+           return _accountRepository.GetUserEmailBy(email); 
+        }
+
+        public AccountViewModel GetUserMobileBy(string mobile)
+        {
+            return _accountRepository.GetUserMobileBy(mobile);
         }
 
         public OperationResult Login(Login command)
@@ -128,6 +141,19 @@ namespace AccountManagement.Application
         public List<AccountViewModel> Search(AccountSearchModel search)
         {
             return _accountRepository.Search(search);
+        }
+
+        public OperationResult SetToken(string token,long id)
+        {
+            var operation = new OperationResult();
+            var account = _accountRepository.Get(id);
+            if (account == null)
+            {
+                return operation.Failed(ApplicationMessages.NotFound);
+            }
+            account.UpdateToken(token);
+            _accountRepository.SaveChanges();
+            return operation.Success();
         }
     }
 }

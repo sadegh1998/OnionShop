@@ -14,6 +14,9 @@ namespace AccountManagement.Domain.AccountAgg
         public string Username { get; private set; }
         public string Password { get; private set; }
         public string Mobile { get; private set; }
+        public string Email { get; private set; }
+        public string LastSendSms { get; private set; }
+        public string Token { get; private set; }
         public long RoleId { get; private set; }
         public Role Role { get; private set; }
         public string ProfilePicture { get; private set; }
@@ -41,6 +44,14 @@ namespace AccountManagement.Domain.AccountAgg
         public void ChanagePassword(string password)
         {
             Password = password;
+        }
+        public void UpdateLastSendSms(string sms)
+        {
+            LastSendSms = sms;
+        }
+        public void UpdateToken(string token)
+        {
+            Token = token;
         }
     }
 
